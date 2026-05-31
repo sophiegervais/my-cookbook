@@ -11,20 +11,17 @@
 @media(prefers-color-scheme:dark){:root{--bg:#1a1814;--sur:#232019;--sur2:#2c2820;--bdr:#3a352c;--bdr2:#4d4840;--tx:#f0ede6;--tx2:#a09890;--tx3:#6b6560;--a:#e8981a;--al:#3d2e0a;--ad:#f0b84a;--t:#1D9E75;--tl:#04342C;--td:#9FE1CB;--p:#7F77DD;--pl:#26215C;--pd:#CECBF6}}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--tx);font-size:15px;line-height:1.5;min-height:100vh}
 .app{max-width:880px;margin:0 auto;padding:0 1.25rem 3rem}
-/* header */
 .hdr{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 0 1rem;border-bottom:1px solid var(--bdr);margin-bottom:1.25rem;gap:12px;flex-wrap:wrap}
-.hdr-l{display:flex;align-items:center;gap:10px}
+.hl{display:flex;align-items:center;gap:10px}
 .logo{width:32px;height:32px;border-radius:50%;background:var(--a);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .logo i{font-size:16px;color:#fff}
-.app-title{font-size:17px;font-weight:600;color:var(--tx)}
-.app-sub{font-size:12px;color:var(--tx2)}
+.at{font-size:17px;font-weight:600;color:var(--tx)}
+.as{font-size:12px;color:var(--tx2)}
 .nav{display:flex;gap:4px;flex-wrap:wrap}
 .nb{background:transparent;border:1px solid var(--bdr);border-radius:var(--rs);padding:6px 12px;font-size:13px;cursor:pointer;color:var(--tx2);display:flex;align-items:center;gap:5px;transition:all .15s;font-family:inherit}
-.nb:hover{background:var(--sur2);color:var(--tx)}
-.nb.on{background:var(--sur2);color:var(--tx);border-color:var(--bdr2)}
-.badge{display:inline-flex;align-items:center;justify-content:center;background:var(--a);color:#fff;font-size:10px;font-weight:600;width:17px;height:17px;border-radius:50%}
-/* inputs */
-input,select,textarea{background:var(--sur);border:1px solid var(--bdr);border-radius:var(--rs);padding:8px 10px;font-size:14px;color:var(--tx);font-family:inherit;outline:none;transition:border-color .15s;width:100%}
+.nb:hover,.nb.on{background:var(--sur2);color:var(--tx);border-color:var(--bdr2)}
+.bdg{background:var(--a);color:#fff;font-size:10px;width:17px;height:17px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:600}
+input,select,textarea{background:var(--sur);border:1px solid var(--bdr);border-radius:var(--rs);padding:8px 10px;font-size:14px;color:var(--tx);font-family:inherit;outline:none;width:100%;transition:border-color .15s}
 input:focus,select:focus,textarea:focus{border-color:var(--a)}
 textarea{resize:vertical}
 button{font-family:inherit;cursor:pointer}
@@ -35,10 +32,9 @@ button{font-family:inherit;cursor:pointer}
 .bg:hover{background:var(--sur2);color:var(--tx)}
 .bt{background:var(--t);border:none;border-radius:var(--rs);padding:7px 14px;font-size:13px;color:#fff;font-weight:500;display:flex;align-items:center;gap:5px}
 .bt:hover{background:var(--td)}
-/* recipe list */
-.sb{display:flex;gap:8px;margin-bottom:1rem}
-.pills{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1rem}
-.pill{background:transparent;border:1px solid var(--bdr);border-radius:20px;padding:4px 12px;font-size:12px;cursor:pointer;color:var(--tx2);transition:all .15s;font-family:inherit}
+.sb{display:flex;gap:8px;margin-bottom:.875rem}
+.pills{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:.875rem}
+.pill{background:transparent;border:1px solid var(--bdr);border-radius:20px;padding:4px 12px;font-size:12px;cursor:pointer;color:var(--tx2);font-family:inherit;transition:all .15s}
 .pill:hover{background:var(--sur2)}
 .pill.on{background:var(--al);border-color:var(--a);color:var(--ad)}
 .pill.try.on{background:var(--pl);border-color:var(--p);color:var(--pd)}
@@ -48,21 +44,20 @@ button{font-family:inherit;cursor:pointer}
 .card.try{border-style:dashed}
 .ctag{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--ad);background:var(--al);padding:2px 7px;border-radius:10px;display:inline-block;margin-bottom:8px}
 .ctag.try{color:var(--pd);background:var(--pl)}
-.cname{font-size:14px;font-weight:500;color:var(--tx);margin-bottom:6px;line-height:1.4}
-.cmeta{font-size:12px;color:var(--tx2);display:flex;align-items:center;gap:8px}
+.cn{font-size:14px;font-weight:500;color:var(--tx);margin-bottom:6px;line-height:1.4}
+.cm{font-size:12px;color:var(--tx2);display:flex;align-items:center;gap:8px}
 .stars{color:var(--a)}
 .empty{text-align:center;padding:3rem 1rem;color:var(--tx2)}
 .empty i{font-size:42px;opacity:.25;display:block;margin-bottom:12px}
-/* detail */
 .back{background:transparent;border:none;cursor:pointer;color:var(--tx2);font-size:13px;display:flex;align-items:center;gap:5px;margin-bottom:1rem;padding:4px 0;font-family:inherit}
 .back:hover{color:var(--tx)}
-.dtitle{font-size:22px;font-weight:600;color:var(--tx);margin-bottom:6px;line-height:1.3}
+.dtt{font-size:22px;font-weight:600;color:var(--tx);margin-bottom:6px;line-height:1.3}
 .dh{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1.25rem;gap:12px}
-.dacts{display:flex;gap:6px;flex-shrink:0}
+.da{display:flex;gap:6px;flex-shrink:0}
 .ib{background:transparent;border:1px solid var(--bdr);border-radius:var(--rs);width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--tx2);transition:all .15s}
 .ib:hover{background:var(--sur2)}
 .ib.del:hover{background:#fff0f0;color:#c0392b;border-color:#f5c6c6}
-.dmeta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:1.25rem}
+.dm{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:1.25rem}
 .dmi{font-size:13px;color:var(--tx2);display:flex;align-items:center;gap:4px}
 .slbl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--tx2);margin-bottom:8px}
 .dcols{display:grid;grid-template-columns:1fr 1.6fr;gap:1.25rem;margin-bottom:1.25rem}
@@ -76,21 +71,19 @@ button{font-family:inherit;cursor:pointer}
 .sl li:last-child{border-bottom:none}
 .sn{font-size:11px;font-weight:600;color:var(--ad);background:var(--al);min-width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:1px;flex-shrink:0}
 .nbox{background:var(--sur2);border-radius:var(--rs);padding:12px 14px;font-size:14px;color:var(--tx);line-height:1.65;margin-bottom:1rem;border-left:3px solid var(--a)}
-.tbanner{background:var(--pl);border-radius:var(--r);padding:12px 16px;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.tbanner span{font-size:14px;color:var(--pd);display:flex;align-items:center;gap:7px}
-/* import boxes */
-.import-section{display:flex;flex-direction:column;gap:10px;margin-bottom:1.5rem}
+.tbn{background:var(--pl);border-radius:var(--r);padding:12px 16px;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.tbn span{font-size:14px;color:var(--pd);display:flex;align-items:center;gap:7px}
+.isec{display:flex;flex-direction:column;gap:8px;margin-bottom:1.5rem}
 .ibox{background:var(--sur2);border:1px solid var(--bdr);border-radius:var(--r);padding:1rem 1.25rem}
-.ibox-title{font-size:13px;font-weight:600;color:var(--tx);margin-bottom:3px;display:flex;align-items:center;gap:6px}
-.ibox-sub{font-size:12px;color:var(--tx2);margin-bottom:10px}
-.irow{display:flex;gap:8px}
-.irow input{flex:1}
-.istatus{margin-top:8px;font-size:13px;display:flex;align-items:center;gap:6px}
-.istatus.ok{color:var(--t)}
-.istatus.err{color:#c0392b}
+.ibt{font-size:13px;font-weight:600;color:var(--tx);margin-bottom:3px;display:flex;align-items:center;gap:6px}
+.ibs{font-size:12px;color:var(--tx2);margin-bottom:9px}
+.ir{display:flex;gap:8px}
+.ir input{flex:1}
+.imsg{margin-top:7px;font-size:13px;display:flex;align-items:center;gap:5px}
+.imsg.ok{color:var(--t)}
+.imsg.err{color:#c0392b}
 .divider{display:flex;align-items:center;gap:10px;margin:1.25rem 0;color:var(--tx3);font-size:12px}
 .divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--bdr)}
-/* form */
 .fr{margin-bottom:1rem}
 .fl{font-size:11px;font-weight:600;color:var(--tx2);margin-bottom:5px;display:block;text-transform:uppercase;letter-spacing:.05em}
 .fr textarea{height:80px}
@@ -108,61 +101,67 @@ button{font-family:inherit;cursor:pointer}
 .spkr{display:flex;gap:4px}
 .sp{font-size:24px;cursor:pointer;color:var(--bdr2);transition:color .1s}
 .sp.lit{color:var(--a)}
-.facts{display:flex;gap:8px;justify-content:flex-end;padding-top:1rem;border-top:1px solid var(--bdr);margin-top:1rem}
+.fac{display:flex;gap:8px;justify-content:flex-end;padding-top:1rem;border-top:1px solid var(--bdr);margin-top:1rem}
 .trow{display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--pl);border-radius:var(--rs)}
 .trow label{font-size:14px;color:var(--pd);font-weight:500;cursor:pointer}
-.trow input[type=checkbox]{width:16px;height:16px;accent-color:var(--p);cursor:pointer}
-/* shopping */
+.trow input[type=checkbox]{width:16px;height:16px;accent-color:var(--p);cursor:pointer;flex-shrink:0}
 .shdr{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px}
 .sadd{display:flex;gap:8px;margin-bottom:1rem}
 .sadd input{flex:1}
-.sstitle{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--tx2);margin-bottom:8px}
-.si{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:var(--rs);transition:background .1s}
+.dhdr{font-size:12px;font-weight:600;color:var(--tx);padding:8px 0 4px;border-bottom:1px solid var(--bdr);margin-bottom:4px;margin-top:.875rem;display:flex;align-items:center;gap:6px}
+.dhdr:first-of-type{margin-top:0}
+.si{display:flex;align-items:center;gap:9px;padding:7px 8px;border-radius:var(--rs);transition:background .1s}
 .si:hover{background:var(--sur2)}
-.si input[type=checkbox]{width:16px;height:16px;cursor:pointer;accent-color:var(--a);flex-shrink:0}
+.si input[type=checkbox]{width:16px;height:16px;cursor:pointer;flex-shrink:0;accent-color:var(--a)}
 .si-t{flex:1;font-size:14px;color:var(--tx)}
 .si.done .si-t{text-decoration:line-through;color:var(--tx2)}
 .si-s{font-size:11px;color:var(--tx3);white-space:nowrap}
+.di-sel{background:transparent;border:none;font-size:11px;color:var(--tx2);cursor:pointer;font-family:inherit;padding:0;width:auto}
 .sdiv{margin:1rem 0 .75rem;border:none;border-top:1px solid var(--bdr)}
-.sipbox{background:var(--sur2);border-radius:var(--r);padding:1rem;margin-top:1.25rem}
-/* meal plan */
+.sipb{background:var(--sur2);border-radius:var(--r);padding:1rem;margin-top:1.25rem}
+.act-bar{display:flex;gap:8px;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--bdr);flex-wrap:wrap}
+.act-btn{display:flex;align-items:center;gap:6px;background:var(--sur);border:1px solid var(--bdr);border-radius:var(--rs);padding:8px 14px;font-size:13px;color:var(--tx);cursor:pointer;font-family:inherit;transition:all .15s}
+.act-btn:hover{background:var(--sur2)}
+.act-btn.discord{border-color:#5865F2;color:#5865F2}
+.act-btn.discord:hover{background:#EEEFFE}
 .pnav{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem}
 .pwl{font-size:16px;font-weight:600;color:var(--tx)}
 .pws{font-size:12px;color:var(--tx2);margin-top:1px}
 .pnb{display:flex;gap:6px}
 .pgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
 @media(max-width:620px){.pgrid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:380px){.pgrid{grid-template-columns:1fr}}
 .pday{background:var(--sur);border:1px solid var(--bdr);border-radius:var(--r);overflow:hidden}
 .pday.td{border-color:var(--a)}
-.pdh{padding:8px 10px;border-bottom:1px solid var(--bdr)}
-.pdn{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--tx2)}
+.pdh{padding:7px 10px;border-bottom:1px solid var(--bdr)}
+.pdn{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--tx2)}
 .pdd{font-size:13px;font-weight:600;color:var(--tx)}
 .pday.td .pdn{color:var(--ad)}
 .pday.td .pdd{color:var(--a)}
-.pslot{padding:6px 8px;border-bottom:1px solid var(--bdr);min-height:50px}
+.pslot{padding:6px 8px;border-bottom:1px solid var(--bdr);min-height:46px}
 .pslot:last-child{border-bottom:none}
-.pml{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--tx3);margin-bottom:3px}
+.pml{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--tx3);margin-bottom:3px}
 .pe{font-size:12px;color:var(--tx3);font-style:italic;cursor:pointer}
 .pe:hover{color:var(--tx2)}
 .pf{display:flex;align-items:flex-start;justify-content:space-between;gap:4px}
 .pm{font-size:12px;color:var(--tx);line-height:1.35;flex:1;cursor:pointer}
 .pm:hover{color:var(--a)}
-.pc{background:none;border:none;color:var(--tx3);font-size:13px;cursor:pointer;padding:0;flex-shrink:0;line-height:1}
-.pc:hover{color:var(--tx2)}
-/* modal */
+.pc{background:none;border:none;color:var(--tx3);font-size:12px;cursor:pointer;padding:0;flex-shrink:0;line-height:1}
 .ov{position:fixed;inset:0;background:rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;z-index:100;padding:1rem}
 .mod{background:var(--sur);border-radius:var(--r);border:1px solid var(--bdr);width:100%;max-width:400px;box-shadow:0 8px 32px rgba(0,0,0,.18)}
 .mh{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.25rem;border-bottom:1px solid var(--bdr)}
 .mt{font-size:15px;font-weight:600;color:var(--tx)}
 .mx{background:none;border:none;font-size:20px;color:var(--tx2);cursor:pointer;line-height:1}
 .mb{padding:1rem 1.25rem}
-.ml{max-height:260px;overflow-y:auto}
+.ml{max-height:240px;overflow-y:auto}
 .mi{padding:9px 10px;border-radius:var(--rs);cursor:pointer;font-size:14px;color:var(--tx);display:flex;align-items:center;gap:8px}
 .mi:hover{background:var(--sur2)}
 .mc{font-size:10px;color:var(--tx3);background:var(--sur2);padding:1px 6px;border-radius:8px}
 .mft{padding:.75rem 1.25rem;border-top:1px solid var(--bdr);display:flex;gap:8px}
 .mft input{flex:1}
+.cfg-sec{margin-bottom:1.5rem}
+.cfg-sec-t{font-size:14px;font-weight:600;color:var(--tx);margin-bottom:3px;display:flex;align-items:center;gap:6px}
+.cfg-sec-s{font-size:13px;color:var(--tx2);margin-bottom:9px}
+.cfg-note{font-size:12px;color:var(--tx2);background:var(--sur2);border-radius:var(--rs);padding:10px 12px;margin-top:8px;line-height:1.6}
 @keyframes spin{to{transform:rotate(360deg)}}
 .spin{display:inline-block;animation:spin .8s linear infinite}
 </style>
@@ -170,595 +169,419 @@ button{font-family:inherit;cursor:pointer}
 <body>
 <div class="app" id="app"></div>
 <script>
-var RECIPES = [
-  {id:"s1",name:"Chimichurri Chicken Thighs",category:"Dinner",rating:5,prepTime:"10 min",cookTime:"30 min",servings:"4",tags:"Latin",wantToTry:false,
-   ingredients:[{qty:"8",name:"bone-in chicken thighs"},{qty:"1 cup",name:"fresh parsley, packed"},{qty:"4 cloves",name:"garlic"},{qty:"3 tbsp",name:"red wine vinegar"},{qty:"1/2 cup",name:"olive oil"},{qty:"1 tsp",name:"dried oregano"},{qty:"1/2 tsp",name:"red pepper flakes"},{qty:"1",name:"lemon, juiced"}],
-   steps:["Blend parsley, garlic, vinegar, olive oil, oregano and red pepper flakes into chimichurri.","Marinate chicken in half the chimichurri for 30 min or overnight.","Bake at 425F for 28-32 min until golden and cooked through.","Drizzle remaining chimichurri over chicken before serving."],
-   notes:"Incredible over rice or roasted potatoes. Overnight marinade makes a big difference. Ben loves extra sauce on the side."},
-  {id:"s2",name:"Beef and Broccoli Stir Fry",category:"Dinner",rating:4,prepTime:"15 min",cookTime:"15 min",servings:"4",tags:"Asian",wantToTry:false,
-   ingredients:[{qty:"1 lb",name:"flank steak, thinly sliced"},{qty:"4 cups",name:"broccoli florets"},{qty:"3 tbsp",name:"low-sodium soy sauce"},{qty:"1 tbsp",name:"oyster sauce"},{qty:"1 tbsp",name:"cornstarch"},{qty:"3 cloves",name:"garlic, minced"},{qty:"1 tsp",name:"fresh ginger, grated"},{qty:"2 tsp",name:"sesame oil"},{qty:"2 tbsp",name:"vegetable oil"}],
-   steps:["Mix soy sauce, oyster sauce, cornstarch and sesame oil for sauce.","Toss beef in cornstarch, stir-fry in hot oil 2 min. Remove.","Stir-fry broccoli 3 min, add garlic and ginger 30 sec.","Return beef, pour sauce over, toss and cook 1 min until thickened."],
-   notes:"Low-sodium soy keeps this weeknight-friendly. Great over jasmine rice."},
-  {id:"s3",name:"Greek Lemon Chicken Soup",category:"Dinner",rating:5,prepTime:"10 min",cookTime:"35 min",servings:"6",tags:"Mediterranean",wantToTry:false,
-   ingredients:[{qty:"1.5 lbs",name:"chicken breasts"},{qty:"8 cups",name:"low-sodium chicken broth"},{qty:"1/2 cup",name:"orzo pasta"},{qty:"3",name:"eggs"},{qty:"1/4 cup",name:"lemon juice"},{qty:"1",name:"onion, halved"},{qty:"2 stalks",name:"celery"},{qty:"1 tsp",name:"black pepper"},{qty:"2 tbsp",name:"fresh dill, chopped"}],
-   steps:["Simmer chicken with onion, celery and pepper in broth 20 min. Remove and shred.","Strain broth back into pot, boil, cook orzo 8 min.","Whisk eggs and lemon juice, slowly ladle in a cup of hot broth while whisking.","Pour back into pot with chicken and dill. Do not boil after this."],
-   notes:"Avgolemono! The egg-lemon technique creates a silky texture. Freeze without the orzo."},
-  {id:"s4",name:"Pork Carnitas Tacos",category:"Dinner",rating:5,prepTime:"15 min",cookTime:"3 hrs",servings:"8",tags:"Latin",wantToTry:false,
-   ingredients:[{qty:"3 lbs",name:"pork shoulder, cut into chunks"},{qty:"1",name:"orange, juiced and zested"},{qty:"1",name:"lime, juiced"},{qty:"4 cloves",name:"garlic"},{qty:"1 tsp",name:"cumin"},{qty:"1 tsp",name:"dried oregano"},{qty:"1 tsp",name:"chili powder"},{qty:"1/2 cup",name:"water"}],
-   steps:["Combine all ingredients in a Dutch oven or slow cooker.","Cook at 325F covered 3 hrs, or slow cooker low 8 hrs.","Shred pork, spread on baking sheet with juices, broil 5 min until crispy.","Serve in warm tortillas with onion, cilantro, salsa and lime."],
-   notes:"The broiling step is non-negotiable for the crispy edges. Freezes beautifully."},
-  {id:"s5",name:"Turkey Meatball Soup",category:"Dinner",rating:4,prepTime:"20 min",cookTime:"30 min",servings:"6",tags:"Mediterranean",wantToTry:false,
-   ingredients:[{qty:"1 lb",name:"ground turkey"},{qty:"1/4 cup",name:"breadcrumbs"},{qty:"1",name:"egg"},{qty:"2 cloves",name:"garlic, minced"},{qty:"1 tsp",name:"Italian seasoning"},{qty:"6 cups",name:"low-sodium chicken broth"},{qty:"2 cups",name:"spinach"},{qty:"1 can",name:"diced tomatoes, no salt added"},{qty:"1 cup",name:"small pasta"}],
-   steps:["Mix turkey, breadcrumbs, egg, half garlic and seasoning. Roll into meatballs.","Brown meatballs in olive oil 2-3 min per side. Remove.","Saute remaining garlic, add broth and tomatoes, bring to simmer.","Add meatballs and pasta, cook 10 min. Stir in spinach until wilted."],
-   notes:"Add a parmesan rind to the broth for extra depth."},
-  {id:"s6",name:"Banana Bread",category:"Dessert",rating:5,prepTime:"10 min",cookTime:"55 min",servings:"8",tags:"Baking",wantToTry:false,
-   ingredients:[{qty:"3",name:"very ripe bananas"},{qty:"1/3 cup",name:"melted butter"},{qty:"3/4 cup",name:"sugar"},{qty:"1",name:"egg, beaten"},{qty:"1 tsp",name:"vanilla"},{qty:"1 tsp",name:"baking soda"},{qty:"1.5 cups",name:"all-purpose flour"},{qty:"1/2 cup",name:"chocolate chips (optional)"}],
-   steps:["Preheat oven to 350F. Mash bananas in a large bowl.","Mix in butter, then sugar, egg and vanilla.","Add baking soda, fold in flour until just combined. Add chocolate chips.","Pour into greased 4x8 loaf pan. Bake 55-65 min until toothpick comes out clean."],
-   notes:"The blacker the bananas the better. I freeze overripe bananas for this."},
-  {id:"s7",name:"Birria Tacos",category:"Dinner",rating:0,prepTime:"20 min",cookTime:"3.5 hrs",servings:"8",tags:"Latin",wantToTry:true,
-   ingredients:[{qty:"3 lbs",name:"beef chuck or short ribs"},{qty:"5",name:"dried guajillo chiles"},{qty:"3",name:"dried ancho chiles"},{qty:"1",name:"chipotle in adobo"},{qty:"4 cloves",name:"garlic"},{qty:"1 tsp",name:"cumin"},{qty:"1 tsp",name:"dried oregano"},{qty:"1/2 tsp",name:"cinnamon"},{qty:"2 cups",name:"beef broth"}],
-   steps:["Toast dried chiles 1 min, soak in hot water 20 min. Blend with garlic and spices.","Coat beef in chile paste, marinate 1 hr or overnight.","Braise beef with broth at 325F for 3 hrs until fall-apart tender.","Dip corn tortillas in consomme, fill with beef and cheese, griddle until crispy.","Serve with consomme for dipping, onion, cilantro and lime."],
-   notes:"Want to try the dipping consomme technique - apparently that is the key step."},
-  {id:"s8",name:"Korean Japchae Noodles",category:"Dinner",rating:0,prepTime:"20 min",cookTime:"20 min",servings:"4",tags:"Asian",wantToTry:true,
-   ingredients:[{qty:"200g",name:"glass noodles (dangmyeon)"},{qty:"200g",name:"beef sirloin, thinly sliced"},{qty:"2",name:"carrots, julienned"},{qty:"1",name:"onion, sliced"},{qty:"2 cups",name:"spinach"},{qty:"4",name:"shiitake mushrooms"},{qty:"3 tbsp",name:"low-sodium soy sauce"},{qty:"2 tbsp",name:"sesame oil"},{qty:"1 tbsp",name:"sugar"}],
-   steps:["Soak glass noodles in hot water 20 min, drain.","Season beef with soy sauce and garlic, stir-fry 2 min. Set aside.","Stir-fry each vegetable separately.","Toss noodles with soy sauce, sesame oil and sugar.","Combine everything, adjust seasoning, garnish with sesame seeds."],
-   notes:"Looks doable for a weeknight if I prep the veg ahead."}
-];
-
-var DAYS = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
-var MEALS = ["Lunch","Dinner"];
-var CATS = ["All","Dinner","Lunch","Dessert","Snack","Other","Want to Try"];
-
-var S = {
-  view:"list", recipes:[], shopItems:[], mealPlan:{},
-  filter:"All", search:"", selected:null, editR:null,
-  weekOff:0, modal:null, mSearch:"",
-  urlLoading:false, urlMsg:"", urlOk:false,
-  pasteLoading:false, pasteMsg:"", pasteOk:false
+window.storage={
+  get:function(k){return new Promise(function(res){try{var v=localStorage.getItem(k);res(v?{value:v,key:k}:null);}catch(e){res(null);}});},
+  set:function(k,v){return new Promise(function(res){try{localStorage.setItem(k,v);res({value:v,key:k});}catch(e){res(null);}});},
+  delete:function(k){return new Promise(function(res){try{localStorage.removeItem(k);res({deleted:true,key:k});}catch(e){res(null);}});}
 };
 
-function loadData() {
-  try { var r = localStorage.getItem("cb5_r"); S.recipes = r ? JSON.parse(r) : JSON.parse(JSON.stringify(RECIPES)); } catch(e) { S.recipes = JSON.parse(JSON.stringify(RECIPES)); }
-  try { var s = localStorage.getItem("cb5_s"); S.shopItems = s ? JSON.parse(s) : []; } catch(e) { S.shopItems = []; }
-  try { var m = localStorage.getItem("cb5_m"); S.mealPlan = m ? JSON.parse(m) : {}; } catch(e) { S.mealPlan = {}; }
-  render();
-}
-function saveR() { try { localStorage.setItem("cb5_r", JSON.stringify(S.recipes)); } catch(e) {} }
-function saveS() { try { localStorage.setItem("cb5_s", JSON.stringify(S.shopItems)); } catch(e) {} }
-function saveM() { try { localStorage.setItem("cb5_m", JSON.stringify(S.mealPlan)); } catch(e) {} }
-function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2); }
+var RR=[
+  {id:"s1",name:"Chimichurri Chicken Thighs",category:"Dinner",rating:5,prepTime:"10 min",cookTime:"30 min",servings:"4",tags:"Latin",wantToTry:false,
+   ingredients:[{qty:"8",name:"bone-in chicken thighs"},{qty:"1 cup",name:"fresh parsley"},{qty:"4 cloves",name:"garlic"},{qty:"3 tbsp",name:"red wine vinegar"},{qty:"1/2 cup",name:"olive oil"},{qty:"1 tsp",name:"dried oregano"},{qty:"1/2 tsp",name:"red pepper flakes"},{qty:"1",name:"lemon, juiced"}],
+   steps:["Blend parsley, garlic, vinegar, olive oil, oregano and red pepper flakes into chimichurri.","Marinate chicken in half the chimichurri for 30 min or overnight.","Bake at 425F for 28-32 min until golden and cooked through.","Drizzle remaining chimichurri over chicken before serving."],
+   notes:"Incredible over rice or roasted potatoes. Overnight marinade makes a big difference."},
+  {id:"s2",name:"Beef and Broccoli Stir Fry",category:"Dinner",rating:4,prepTime:"15 min",cookTime:"15 min",servings:"4",tags:"Asian",wantToTry:false,
+   ingredients:[{qty:"1 lb",name:"flank steak, thinly sliced"},{qty:"4 cups",name:"broccoli florets"},{qty:"3 tbsp",name:"low-sodium soy sauce"},{qty:"1 tbsp",name:"oyster sauce"},{qty:"1 tbsp",name:"cornstarch"},{qty:"3 cloves",name:"garlic, minced"},{qty:"1 tsp",name:"ginger, grated"},{qty:"2 tsp",name:"sesame oil"},{qty:"2 tbsp",name:"vegetable oil"}],
+   steps:["Mix soy sauce, oyster sauce, cornstarch and sesame oil for sauce.","Toss beef in cornstarch, stir-fry in hot oil 2 min. Remove.","Stir-fry broccoli 3 min, add garlic and ginger 30 sec.","Return beef, pour sauce, toss and cook 1 min until thickened."],
+   notes:"Low-sodium soy keeps this weeknight-friendly. Great over jasmine rice."},
+  {id:"s3",name:"Greek Lemon Chicken Soup",category:"Dinner",rating:5,prepTime:"10 min",cookTime:"35 min",servings:"6",tags:"Mediterranean",wantToTry:false,
+   ingredients:[{qty:"1.5 lbs",name:"chicken breasts"},{qty:"8 cups",name:"low-sodium chicken broth"},{qty:"1/2 cup",name:"orzo pasta"},{qty:"3",name:"eggs"},{qty:"1/4 cup",name:"lemon juice"},{qty:"1",name:"onion, halved"},{qty:"2 stalks",name:"celery"},{qty:"1 tsp",name:"black pepper"},{qty:"2 tbsp",name:"fresh dill"}],
+   steps:["Simmer chicken with onion, celery and pepper in broth 20 min. Remove and shred.","Strain broth back, boil, cook orzo 8 min.","Whisk eggs and lemon juice, slowly ladle in hot broth while whisking.","Pour back into pot with chicken and dill. Do not boil after this."],
+   notes:"Avgolemono! The egg-lemon technique creates a silky texture. Freeze without the orzo."},
+  {id:"s4",name:"Pork Carnitas Tacos",category:"Dinner",rating:5,prepTime:"15 min",cookTime:"3 hrs",servings:"8",tags:"Latin",wantToTry:false,
+   ingredients:[{qty:"3 lbs",name:"pork shoulder"},{qty:"1",name:"orange, juiced and zested"},{qty:"1",name:"lime, juiced"},{qty:"4 cloves",name:"garlic"},{qty:"1 tsp",name:"cumin"},{qty:"1 tsp",name:"dried oregano"},{qty:"1 tsp",name:"chili powder"},{qty:"1/2 cup",name:"water"}],
+   steps:["Combine all ingredients in a Dutch oven or slow cooker.","Cook at 325F covered 3 hrs, or slow cooker low 8 hrs.","Shred pork, spread on baking sheet with juices, broil 5 min until crispy.","Serve in warm tortillas with onion, cilantro, salsa and lime."],
+   notes:"The broiling step is non-negotiable for crispy edges. Freezes beautifully."},
+  {id:"s5",name:"Turkey Meatball Soup",category:"Dinner",rating:4,prepTime:"20 min",cookTime:"30 min",servings:"6",tags:"Mediterranean",wantToTry:false,
+   ingredients:[{qty:"1 lb",name:"ground turkey"},{qty:"1/4 cup",name:"breadcrumbs"},{qty:"1",name:"egg"},{qty:"2 cloves",name:"garlic, minced"},{qty:"1 tsp",name:"Italian seasoning"},{qty:"6 cups",name:"low-sodium chicken broth"},{qty:"2 cups",name:"spinach"},{qty:"1 can",name:"diced tomatoes"},{qty:"1 cup",name:"small pasta"}],
+   steps:["Mix turkey, breadcrumbs, egg, half garlic and seasoning. Roll into meatballs.","Brown meatballs in olive oil 2-3 min per side. Remove.","Saute remaining garlic, add broth and tomatoes, simmer.","Add meatballs and pasta, cook 10 min. Stir in spinach."],
+   notes:"Add a parmesan rind to the broth for extra depth."},
+  {id:"s6",name:"Banana Bread",category:"Dessert",rating:5,prepTime:"10 min",cookTime:"55 min",servings:"8",tags:"Baking",wantToTry:false,
+   ingredients:[{qty:"3",name:"very ripe bananas"},{qty:"1/3 cup",name:"melted butter"},{qty:"3/4 cup",name:"sugar"},{qty:"1",name:"egg, beaten"},{qty:"1 tsp",name:"vanilla"},{qty:"1 tsp",name:"baking soda"},{qty:"1.5 cups",name:"flour"},{qty:"1/2 cup",name:"chocolate chips"}],
+   steps:["Preheat oven to 350F. Mash bananas in a large bowl.","Mix in butter, then sugar, egg and vanilla.","Add baking soda, fold in flour. Add chips.","Bake in greased 4x8 loaf pan 55-65 min until toothpick clean."],
+   notes:"The blacker the bananas the better. I freeze overripe bananas for this."},
+  {id:"s7",name:"Birria Tacos",category:"Dinner",rating:0,prepTime:"20 min",cookTime:"3.5 hrs",servings:"8",tags:"Latin",wantToTry:true,
+   ingredients:[{qty:"3 lbs",name:"beef chuck or short ribs"},{qty:"5",name:"dried guajillo chiles"},{qty:"3",name:"dried ancho chiles"},{qty:"4 cloves",name:"garlic"},{qty:"1 tsp",name:"cumin"},{qty:"2 cups",name:"beef broth"}],
+   steps:["Toast chiles, soak 20 min, blend with garlic and spices.","Coat beef in chile paste, marinate 1 hr.","Braise at 325F for 3 hrs until fall-apart tender.","Dip tortillas in consomme, fill with beef, griddle crispy.","Serve with consomme for dipping."],
+   notes:"Want to try the dipping consomme technique."},
+  {id:"s8",name:"Korean Japchae Noodles",category:"Dinner",rating:0,prepTime:"20 min",cookTime:"20 min",servings:"4",tags:"Asian",wantToTry:true,
+   ingredients:[{qty:"200g",name:"glass noodles"},{qty:"200g",name:"beef sirloin, sliced"},{qty:"2",name:"carrots, julienned"},{qty:"1",name:"onion, sliced"},{qty:"2 cups",name:"spinach"},{qty:"4",name:"shiitake mushrooms"},{qty:"3 tbsp",name:"low-sodium soy sauce"},{qty:"2 tbsp",name:"sesame oil"}],
+   steps:["Soak noodles 20 min, drain.","Season beef with soy and garlic, stir-fry 2 min.","Stir-fry each vegetable separately.","Toss noodles with sauce, combine everything, garnish with sesame seeds."],
+   notes:"Looks doable for a weeknight if I prep veg ahead."}
+];
 
-function esc(s) {
-  return String(s || "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+var DAYS=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
+var MEALS=["Lunch","Dinner"];
+var CATS=["All","Dinner","Lunch","Dessert","Snack","Other","Want to Try"];
+var DEPTS=["Produce","Meat & Seafood","Dairy & Eggs","Pantry & Dry Goods","Canned & Jarred","Frozen","Bakery","Condiments","Other"];
+var DICONS={"Produce":"\u{1F966}","Meat & Seafood":"\u{1F969}","Dairy & Eggs":"\u{1F9C0}","Pantry & Dry Goods":"\u{1FAD9}","Canned & Jarred":"\u{1F96B}","Frozen":"\u{2744}\uFE0F","Bakery":"\u{1F956}","Condiments":"\u{1FAD4}","Other":"\u{1F6D2}"};
+
+var S={v:"list",rr:[],sh:[],pl:{},fil:"All",srch:"",sel:null,er:null,wo:0,mo:null,ms:"",ul:false,um:"",uo:false,cfg:{discord:"",phone:""}};
+
+async function ini(){
+  try{var r=await window.storage.get("cb9r");S.rr=r?JSON.parse(r.value):JSON.parse(JSON.stringify(RR));}catch(e){S.rr=JSON.parse(JSON.stringify(RR));}
+  try{var s=await window.storage.get("cb9s");S.sh=s?JSON.parse(s.value):[];}catch(e){S.sh=[];}
+  try{var p=await window.storage.get("cb9p");S.pl=p?JSON.parse(p.value):{};}catch(e){S.pl={};}
+  try{var c=await window.storage.get("cb9cfg");S.cfg=c?JSON.parse(c.value):{discord:"",phone:""};}catch(e){S.cfg={discord:"",phone:""};}
+  rnd();
 }
-function starsH(n) {
-  var h = '<span class="stars">';
-  for (var i = 1; i <= 5; i++) h += i <= n ? "&#9733;" : "&#9734;";
-  return h + "</span>";
+function svR(){try{window.storage.set("cb9r",JSON.stringify(S.rr));}catch(e){}}
+function svS(){try{window.storage.set("cb9s",JSON.stringify(S.sh));}catch(e){}}
+function svP(){try{window.storage.set("cb9p",JSON.stringify(S.pl));}catch(e){}}
+function svC(){try{window.storage.set("cb9cfg",JSON.stringify(S.cfg));}catch(e){}}
+function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2);}
+function esc(s){return String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+function stH(n){var h="<span class='stars'>";for(var i=1;i<=5;i++)h+=i<=n?"&#9733;":"&#9734;";return h+"</span>";}
+
+function autoDept(n){
+  n=(n||"").toLowerCase();
+  if(/parsley|cilantro|dill|basil|mint|thyme|spinach|kale|lettuce|broccoli|cauliflower|celery|carrot|onion|shallot|garlic|ginger|pepper|tomato|cucumber|zucchini|squash|potato|mushroom|avocado|lime|lemon|orange|apple|banana|berry|mango|fresh herb/.test(n))return"Produce";
+  if(/chicken|beef|pork|lamb|turkey|salmon|tuna|fish|shrimp|seafood|meat|steak|ground|sirloin|chuck|rib|sausage|bacon|ham/.test(n))return"Meat & Seafood";
+  if(/milk|butter|cheese|egg|yogurt|cream|mozzarella|parmesan|cheddar|dairy/.test(n))return"Dairy & Eggs";
+  if(/frozen/.test(n))return"Frozen";
+  if(/bread|tortilla|wrap|roll|bun|pita|naan|bagel|bakery/.test(n))return"Bakery";
+  if(/ketchup|mustard|mayo|hot sauce|worcestershire|oyster sauce|fish sauce|hoisin|dressing/.test(n))return"Condiments";
+  if(/\bcan\b|canned|diced tomato|tomato sauce|tomato paste|\bbean|lentil|chickpea|jarred/.test(n))return"Canned & Jarred";
+  if(/flour|sugar|salt|cumin|paprika|chili|cinnamon|spice|seasoning|rice|pasta|noodle|orzo|breadcrumb|cornstarch|baking|cocoa|chocolate|vanilla|oil|olive oil|sesame oil|vegetable oil|vinegar|soy sauce|broth|stock|coconut milk|honey|maple/.test(n))return"Pantry & Dry Goods";
+  return"Other";
 }
 
-/* ---- WEEK ---- */
-function getMon(off) {
-  var d = new Date(); var dy = d.getDay(); var df = dy === 0 ? -6 : 1 - dy;
-  d.setDate(d.getDate() + df + off * 7); d.setHours(0,0,0,0); return d;
+function fmtList(){
+  var by={};DEPTS.forEach(function(d){by[d]=[];});
+  S.sh.filter(function(i){return!i.done;}).forEach(function(it){if(!it.dept)it.dept=autoDept(it.text);(by[it.dept]||by["Other"]).push(it);});
+  var lines=["Shopping List\n"];
+  DEPTS.forEach(function(d){if(!by[d]||!by[d].length)return;lines.push("\n"+(DICONS[d]||"")+" "+d.toUpperCase());by[d].forEach(function(it){lines.push("- "+it.text);});});
+  return lines.join("\n");
 }
-function wKey(off) { return getMon(off).toISOString().slice(0,10); }
-function wDates(off) {
-  var m = getMon(off);
-  return DAYS.map(function(_,i) { var d = new Date(m); d.setDate(d.getDate()+i); return d; });
-}
-function isToday(d) { var n = new Date(); return d.getDate()===n.getDate() && d.getMonth()===n.getMonth() && d.getFullYear()===n.getFullYear(); }
-function slotK(off,di,ml) { return wKey(off)+"_"+di+"_"+ml; }
-function getMeal(off,di,ml) { return S.mealPlan[slotK(off,di,ml)] || ""; }
-function setMeal(off,di,ml,val) { S.mealPlan[slotK(off,di,ml)] = val; saveM(); }
 
-/* ---- FILTER ---- */
-function getFiltered() {
-  return S.recipes.filter(function(r) {
-    if (S.filter === "Want to Try") return !!r.wantToTry;
-    var co = S.filter === "All" || r.category === S.filter;
-    var q = S.search.toLowerCase();
-    var so = !q || r.name.toLowerCase().indexOf(q) >= 0 || (r.tags||"").toLowerCase().indexOf(q) >= 0 || r.category.toLowerCase().indexOf(q) >= 0;
-    return co && so;
+function toast(msg){
+  var t=document.createElement("div");
+  t.style.cssText="position:fixed;bottom:1.25rem;left:50%;transform:translateX(-50%);background:#1c1a17;color:#fff;font-size:13px;padding:9px 18px;border-radius:20px;z-index:9999;font-family:inherit;white-space:nowrap;pointer-events:none";
+  t.textContent=msg;document.body.appendChild(t);
+  setTimeout(function(){t.style.opacity="0";t.style.transition="opacity .4s";setTimeout(function(){t.remove();},400);},2200);
+}
+
+async function sendDiscord(){
+  if(!S.cfg.discord){alert("Add a Discord webhook URL in Settings first.");return;}
+  var pend=S.sh.filter(function(i){return!i.done;});
+  if(!pend.length){alert("Shopping list is empty.");return;}
+  try{
+    var r=await fetch(S.cfg.discord,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({content:fmtList(),username:"My Cookbook"})});
+    if(r.ok)toast("Sent to Discord!");
+    else alert("Discord error. Check your webhook URL in Settings.");
+  }catch(e){alert("Could not reach Discord: "+e.message);}
+}
+
+function openSMS(){
+  var pend=S.sh.filter(function(i){return!i.done;});
+  if(!pend.length){alert("Shopping list is empty.");return;}
+  var text=fmtList();var phone=S.cfg.phone||"";
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(text).then(function(){
+      toast("Copied to clipboard!");
+      if(phone)setTimeout(function(){window.location.href="sms:"+phone+"?body="+encodeURIComponent(text.slice(0,900));},400);
+    });
+  }else{
+    if(phone)window.location.href="sms:"+phone+"?body="+encodeURIComponent(text.slice(0,900));
+    else toast("Add a phone number in Settings.");
+  }
+}
+
+function copyNotion(){
+  var pend=S.sh.filter(function(i){return!i.done;});
+  if(!pend.length){alert("Shopping list is empty.");return;}
+  navigator.clipboard.writeText(fmtList()).then(function(){toast("Copied! Paste into Notion.");}).catch(function(){toast("Could not copy automatically.");});
+}
+
+function parseDur(s){
+  if(!s)return"";var m=s.match(/PT?(?:(\d+)H)?(?:(\d+)M)?/i);
+  if(!m)return s.replace(/PT/g,"").replace(/H/g," hr").replace(/M/g," min").trim();
+  var h=parseInt(m[1]||0),mn=parseInt(m[2]||0);
+  if(h&&mn)return h+" hr "+mn+" min";if(h)return h+" hr";if(mn)return mn+" min";return s;
+}
+function findSch(d){
+  if(!d)return null;if(Array.isArray(d)){for(var i=0;i<d.length;i++){var r=findSch(d[i]);if(r)return r;}return null;}
+  if(d["@graph"])return findSch(d["@graph"]);
+  var t=d["@type"];if(t==="Recipe"||(Array.isArray(t)&&t.indexOf("Recipe")>=0))return d;return null;
+}
+function parseInst(x){
+  if(!x)return[];if(typeof x==="string")return x.split(/\n+/).map(function(s){return s.trim();}).filter(Boolean);
+  if(!Array.isArray(x))x=[x];var o=[];
+  for(var i=0;i<x.length;i++){var v=x[i];if(typeof v==="string"){o.push(v.trim());}else if(v["@type"]==="HowToStep"){o.push((v.text||v.name||"").trim());}else if(v["@type"]==="HowToSection"){var sub=parseInst(v.itemListElement);for(var j=0;j<sub.length;j++)o.push(sub[j]);}else{o.push((v.text||v.name||"").trim());}}
+  return o.filter(Boolean);
+}
+function parseIngs(list){
+  if(!Array.isArray(list))return[];
+  return list.map(function(s){var str=typeof s==="string"?s:(s.name||String(s));var m=str.match(/^([\d\/.]+\s*(?:cups?|tbsps?|tsps?|oz|lbs?|g|kg|ml|l|cloves?|medium|large|small|can|bunch|pinch)?)\s+(.+)/i);if(m)return{qty:m[1].trim(),name:m[2].trim()};return{qty:"",name:str.trim()};}).filter(function(x){return x.name;});
+}
+function doURL(){
+  var inp=document.getElementById("ui");var url=inp?inp.value.trim():"";
+  if(!url){alert("Please paste a URL first.");return;}
+  S.ul=true;S.um="";rnd();
+  tryP(["https://api.allorigins.win/raw?url="+encodeURIComponent(url),"https://corsproxy.io/?"+encodeURIComponent(url)],0);
+}
+function tryP(px,i){
+  if(i>=px.length){S.ul=false;S.uo=false;S.um="Could not reach this page. Try filling in manually.";rnd();return;}
+  var x=new XMLHttpRequest();x.open("GET",px[i]);x.timeout=12000;
+  x.onload=function(){if(x.status===200){procH(x.responseText);}else{tryP(px,i+1);}};
+  x.onerror=x.ontimeout=function(){tryP(px,i+1);};x.send();
+}
+function procH(html){
+  S.ul=false;var dp=new DOMParser();var doc=dp.parseFromString(html,"text/html");var rc=null;
+  var sc=doc.querySelectorAll('script[type="application/ld+json"]');
+  for(var i=0;i<sc.length;i++){try{var d=JSON.parse(sc[i].textContent);rc=findSch(d);if(rc)break;}catch(e){}}
+  if(!rc){S.uo=false;S.um="No recipe data found on this page. Try filling in manually.";rnd();return;}
+  if(rc.name)S.er.name=rc.name;
+  if(rc.prepTime)S.er.prepTime=parseDur(rc.prepTime);
+  if(rc.cookTime||rc.totalTime)S.er.cookTime=parseDur(rc.cookTime||rc.totalTime);
+  var y=rc.recipeYield;if(y)S.er.servings=typeof y==="string"?y.replace(/[^0-9\s]/g,"").trim():(Array.isArray(y)?String(y[0]):"");
+  var ng=parseIngs(rc.recipeIngredient||[]);if(ng.length)S.er.ingredients=ng;
+  var st=parseInst(rc.recipeInstructions||[]);if(st.length)S.er.steps=st;
+  if(rc.recipeCuisine)S.er.tags=Array.isArray(rc.recipeCuisine)?rc.recipeCuisine[0]:rc.recipeCuisine;
+  else if(rc.keywords)S.er.tags=typeof rc.keywords==="string"?rc.keywords.split(",")[0].trim():(rc.keywords[0]||"");
+  if(rc.description)S.er.notes=rc.description.replace(/<[^>]+>/g,"").trim().slice(0,300);
+  S.uo=true;S.um="Imported! Review and save below.";rnd();
+}
+
+function getMon(o){var d=new Date();var dy=d.getDay();d.setDate(d.getDate()+(dy===0?-6:1-dy)+o*7);d.setHours(0,0,0,0);return d;}
+function wKey(o){return getMon(o).toISOString().slice(0,10);}
+function wDates(o){var m=getMon(o);return DAYS.map(function(_,i){var d=new Date(m);d.setDate(d.getDate()+i);return d;});}
+function isToday(d){var n=new Date();return d.getDate()===n.getDate()&&d.getMonth()===n.getMonth()&&d.getFullYear()===n.getFullYear();}
+function sk(o,di,ml){return wKey(o)+"_"+di+"_"+ml;}
+function gM(o,di,ml){return S.pl[sk(o,di,ml)]||"";}
+function sM(o,di,ml,v){S.pl[sk(o,di,ml)]=v;svP();}
+function getFl(){
+  return S.rr.filter(function(r){
+    if(S.fil==="Want to Try")return!!r.wantToTry;
+    var co=S.fil==="All"||r.category===S.fil;
+    var q=S.srch.toLowerCase();
+    return co&&(!q||r.name.toLowerCase().indexOf(q)>=0||(r.tags||"").toLowerCase().indexOf(q)>=0||r.category.toLowerCase().indexOf(q)>=0);
   });
 }
 
-/* ---- URL IMPORT ---- */
-function parseDur(iso) {
-  if (!iso) return "";
-  var m = iso.match(/PT?(?:(\d+)H)?(?:(\d+)M)?/i);
-  if (!m) return iso.replace("PT","").replace("H"," hr").replace("M"," min").trim();
-  var h = parseInt(m[1]||0), mn = parseInt(m[2]||0);
-  if (h && mn) return h+" hr "+mn+" min";
-  if (h) return h+" hr";
-  if (mn) return mn+" min";
-  return "";
-}
-function findSchema(data) {
-  if (!data) return null;
-  if (Array.isArray(data)) { for (var i=0;i<data.length;i++) { var r=findSchema(data[i]); if(r) return r; } return null; }
-  if (data["@graph"]) return findSchema(data["@graph"]);
-  var t = data["@type"];
-  if (t === "Recipe" || (Array.isArray(t) && t.indexOf("Recipe") >= 0)) return data;
-  return null;
-}
-function parseInst(inst) {
-  if (!inst) return [];
-  if (typeof inst === "string") return inst.split(/
-+/).filter(function(s){return s.trim();}).map(function(s){return s.trim();});
-  if (!Array.isArray(inst)) inst = [inst];
-  var out = [];
-  for (var i=0;i<inst.length;i++) {
-    var x = inst[i];
-    if (typeof x === "string") { out.push(x.trim()); }
-    else if (x["@type"] === "HowToStep") { out.push((x.text||x.name||"").trim()); }
-    else if (x["@type"] === "HowToSection") { var sub=parseInst(x.itemListElement); for(var j=0;j<sub.length;j++) out.push(sub[j]); }
-    else { out.push((x.text||x.name||"").trim()); }
-  }
-  return out.filter(function(s){return s;});
-}
-function parseIngList(list) {
-  if (!Array.isArray(list)) return [];
-  return list.map(function(s) {
-    var str = typeof s === "string" ? s : (s.name || String(s));
-    var m = str.match(/^([\d\/\.¼½¾⅐-⅞\s]+(?:cup|tbsp|tsp|oz|lb|g|kg|ml|l|cloves?|medium|large|small|can|slice|bunch|sprig|pinch|dash)?s?\.?)\s+(.+)/i);
-    if (m) return {qty: m[1].trim(), name: m[2].trim()};
-    return {qty: "", name: str.trim()};
-  }).filter(function(x){return x.name;});
+function rnd(){
+  var app=document.getElementById("app");if(!app)return;
+  var sp=S.sh.filter(function(i){return!i.done;}).length;
+  var wc=S.rr.filter(function(r){return r.wantToTry;}).length;
+  var h='<div class="hdr"><div class="hl"><div class="logo"><i class="ti ti-book"></i></div>';
+  h+='<div><div class="at">My Cookbook</div><div class="as">'+S.rr.filter(function(r){return!r.wantToTry;}).length+' recipes &middot; '+wc+' to try</div></div></div>';
+  h+='<div class="nav">';
+  h+='<button class="nb'+(S.v==="list"||S.v==="detail"?" on":"")+'" onclick="sv('list')"><i class="ti ti-book-2"></i> Recipes</button>';
+  h+='<button class="nb'+(S.v==="plan"?" on":"")+'" onclick="sv('plan')"><i class="ti ti-calendar-week"></i> Meal Plan</button>';
+  h+='<button class="nb'+(S.v==="shop"?" on":"")+'" onclick="sv('shop')"><i class="ti ti-shopping-cart"></i> Shopping'+(sp>0?' <span class="bdg">'+sp+'</span>':"")+'</button>';
+  h+='<button class="nb" onclick="sAdd()"><i class="ti ti-plus"></i> Add</button>';
+  h+='<button class="nb'+(S.v==="cfg"?" on":"")+'" onclick="sv('cfg')" title="Settings"><i class="ti ti-settings"></i></button>';
+  h+='</div></div>';
+  if(S.v==="list")h+=vList();
+  else if(S.v==="detail")h+=vDet();
+  else if(S.v==="form")h+=vForm();
+  else if(S.v==="plan")h+=vPlan();
+  else if(S.v==="shop")h+=vShop();
+  else if(S.v==="cfg")h+=vCfg();
+  if(S.mo)h+=vMod();
+  app.innerHTML=h;
+  bStars();
 }
 
-function doURLImport() {
-  var input = document.getElementById("url-input");
-  var url = input ? input.value.trim() : "";
-  if (!url) { alert("Please paste a recipe URL first."); return; }
-  if (url.indexOf("http") !== 0) { alert("Please enter a full URL starting with https://"); return; }
-  S.urlLoading = true; S.urlMsg = ""; render();
-  var proxies = [
-    "https://api.allorigins.win/raw?url=" + encodeURIComponent(url),
-    "https://corsproxy.io/?" + encodeURIComponent(url)
-  ];
-  tryProxy(proxies, 0);
-}
-function tryProxy(proxies, idx) {
-  if (idx >= proxies.length) {
-    S.urlLoading = false; S.urlOk = false;
-    S.urlMsg = "Could not reach this page. Try pasting the recipe text instead.";
-    render(); return;
-  }
-  var xhr = new XMLHttpRequest();
-  xhr.open("GET", proxies[idx]);
-  xhr.timeout = 12000;
-  xhr.onload = function() {
-    if (xhr.status === 200) { processHTML(xhr.responseText); }
-    else { tryProxy(proxies, idx+1); }
-  };
-  xhr.onerror = xhr.ontimeout = function() { tryProxy(proxies, idx+1); };
-  xhr.send();
-}
-function processHTML(html) {
-  S.urlLoading = false;
-  var parser = new DOMParser();
-  var doc = parser.parseFromString(html, "text/html");
-  var recipe = null;
-  var scripts = doc.querySelectorAll('script[type="application/ld+json"]');
-  for (var i=0; i<scripts.length; i++) {
-    try { var data = JSON.parse(scripts[i].textContent); recipe = findSchema(data); if (recipe) break; } catch(e) {}
-  }
-  if (!recipe) {
-    S.urlOk = false; S.urlMsg = "No recipe data found on this page. Try the paste option below instead.";
-    render(); return;
-  }
-  if (recipe.name) S.editR.name = recipe.name;
-  if (recipe.prepTime) S.editR.prepTime = parseDur(recipe.prepTime);
-  if (recipe.cookTime) S.editR.cookTime = parseDur(recipe.cookTime||recipe.totalTime);
-  var y = recipe.recipeYield;
-  if (y) S.editR.servings = typeof y === "string" ? y.replace(/[^0-9\s]/g,"").trim() : (Array.isArray(y) ? String(y[0]) : "");
-  var ings = parseIngList(recipe.recipeIngredient||[]);
-  if (ings.length) S.editR.ingredients = ings;
-  var stps = parseInst(recipe.recipeInstructions||[]);
-  if (stps.length) S.editR.steps = stps;
-  if (recipe.recipeCuisine) S.editR.tags = Array.isArray(recipe.recipeCuisine) ? recipe.recipeCuisine[0] : recipe.recipeCuisine;
-  else if (recipe.keywords) S.editR.tags = typeof recipe.keywords === "string" ? recipe.keywords.split(",")[0].trim() : (recipe.keywords[0]||"");
-  if (recipe.description) S.editR.notes = recipe.description.replace(/<[^>]+>/g,"").trim().slice(0,300);
-  S.urlOk = true; S.urlMsg = "Recipe imported! Review the fields below.";
-  render();
-  setTimeout(function() { var el = document.getElementById("fn"); if (el) el.scrollIntoView({behavior:"smooth",block:"center"}); }, 100);
-}
-
-/* ---- PASTE IMPORT ---- */
-function doPasteImport() {
-  var input = document.getElementById("paste-input");
-  var text = input ? input.value.trim() : "";
-  if (!text) { alert("Please paste some recipe text first."); return; }
-  S.pasteLoading = true; S.pasteMsg = ""; render();
-  var body = JSON.stringify({
-    model: "claude-sonnet-4-20250514",
-    max_tokens: 1500,
-    system: "You are a recipe parser. Extract recipe data from the provided text and return ONLY a valid JSON object with no markdown, no backticks, no extra text. Keys: name (string), prepTime (string e.g. 15 min), cookTime (string), servings (string), tags (string, one cuisine style), ingredients (array of {qty,name}), steps (array of strings). Use empty string or empty array if unknown. No null values.",
-    messages: [{role:"user", content:"Parse this recipe:
-
-" + text}]
-  });
-  var xhr = new XMLHttpRequest();
-  xhr.open("POST", "https://api.anthropic.com/v1/messages");
-  xhr.setRequestHeader("Content-Type", "application/json");
-  xhr.timeout = 30000;
-  xhr.onload = function() {
-    S.pasteLoading = false;
-    try {
-      var data = JSON.parse(xhr.responseText);
-      var raw = data.content && data.content[0] ? data.content[0].text : "";
-      var cleaned = raw.replace(/```json|```/g,"").trim();
-      var parsed = JSON.parse(cleaned);
-      if (parsed.name) S.editR.name = parsed.name;
-      if (parsed.prepTime) S.editR.prepTime = parsed.prepTime;
-      if (parsed.cookTime) S.editR.cookTime = parsed.cookTime;
-      if (parsed.servings) S.editR.servings = String(parsed.servings);
-      if (parsed.tags) S.editR.tags = parsed.tags;
-      if (parsed.ingredients && parsed.ingredients.length) S.editR.ingredients = parsed.ingredients;
-      if (parsed.steps && parsed.steps.length) S.editR.steps = parsed.steps;
-      S.pasteOk = true; S.pasteMsg = "Parsed! Review the fields below and save when ready.";
-    } catch(e) {
-      S.pasteOk = false; S.pasteMsg = "Could not parse this text. Try tidying it up, or fill in manually.";
-    }
-    render();
-    setTimeout(function() { var el = document.getElementById("fn"); if (el) el.scrollIntoView({behavior:"smooth",block:"center"}); }, 100);
-  };
-  xhr.onerror = xhr.ontimeout = function() {
-    S.pasteLoading = false; S.pasteOk = false; S.pasteMsg = "Request failed. Check your internet connection.";
-    render();
-  };
-  xhr.send(body);
-}
-
-/* ---- RENDER ---- */
-function render() {
-  var app = document.getElementById("app");
-  if (!app) return;
-  var sp = S.shopItems.filter(function(i){return !i.done;}).length;
-  var wc = S.recipes.filter(function(r){return r.wantToTry;}).length;
-  var h = "";
-  h += '<div class="hdr">';
-  h += '<div class="hdr-l"><div class="logo"><i class="ti ti-book"></i></div>';
-  h += '<div><div class="app-title">My Cookbook</div><div class="app-sub">' + S.recipes.filter(function(r){return !r.wantToTry;}).length + ' recipes &middot; ' + wc + ' to try</div></div></div>';
-  h += '<div class="nav">';
-  h += '<button class="nb' + (S.view==="list"||S.view==="detail"?" on":"") + '" onclick="setView('list')"><i class="ti ti-book-2"></i> Recipes</button>';
-  h += '<button class="nb' + (S.view==="plan"?" on":"") + '" onclick="setView('plan')"><i class="ti ti-calendar-week"></i> Meal Plan</button>';
-  h += '<button class="nb' + (S.view==="shop"?" on":"") + '" onclick="setView('shop')"><i class="ti ti-shopping-cart"></i> Shopping' + (sp>0?' <span class="badge">'+sp+'</span>':"") + '</button>';
-  h += '<button class="nb" onclick="startAdd()"><i class="ti ti-plus"></i> Add</button>';
-  h += '</div></div>';
-  if (S.view==="list") h += renderList();
-  else if (S.view==="detail") h += renderDetail();
-  else if (S.view==="form") h += renderForm();
-  else if (S.view==="plan") h += renderPlan();
-  else if (S.view==="shop") h += renderShop();
-  if (S.modal) h += renderModal();
-  app.innerHTML = h;
-  bindStars();
-}
-
-function renderList() {
-  var fl = getFiltered(); var h = "";
-  h += '<div class="sb"><input type="text" placeholder="Search recipes or tags..." value="' + esc(S.search) + '" oninput="doSearch(this.value)"></div>';
-  h += '<div class="pills">';
-  for (var i=0; i<CATS.length; i++) {
-    var c = CATS[i]; var isTry = c==="Want to Try";
-    h += '<button class="pill' + (isTry?" try":"") + (S.filter===c?" on":"") + '" onclick="setCat('' + c.replace("'","\'") + '')">' + c + '</button>';
-  }
-  h += '</div>';
-  if (!fl.length) {
-    h += '<div class="empty"><i class="ti ti-chef-hat"></i>';
-    h += '<div style="font-size:15px;font-weight:500">No recipes here yet</div>';
-    h += '<div style="font-size:13px;margin-top:5px">' + (S.filter==="Want to Try"?"Use + Add to save recipes you want to try":"Try a different filter or search") + '</div></div>';
-  } else {
-    h += '<div class="grid">';
-    for (var i=0; i<fl.length; i++) {
-      var r = fl[i];
-      h += '<div class="card' + (r.wantToTry?" try":"") + '" onclick="openRecipe('' + r.id + '')">';
-      h += '<div><span class="ctag' + (r.wantToTry?" try":"") + '">' + (r.wantToTry?"Want to Try":esc(r.category)) + '</span></div>';
-      h += '<div class="cname">' + esc(r.name) + '</div>';
-      h += '<div class="cmeta">' + (r.rating?starsH(r.rating):'<span style="font-size:11px;color:var(--tx3)">Not tried yet</span>') + (r.cookTime?'<span>'+esc(r.cookTime)+'</span>':"") + '</div>';
-      h += '</div>';
-    }
-    h += '</div>';
-  }
+function vList(){
+  var fl=getFl();var h='<div class="sb"><input type="text" placeholder="Search recipes or tags..." value="'+esc(S.srch)+'" oninput="dSr(this.value)"></div>';
+  h+='<div class="pills">';
+  for(var i=0;i<CATS.length;i++){var c=CATS[i];var iT=c==="Want to Try";h+='<button class="pill'+(iT?" try":"")+(S.fil===c?" on":"")+'" onclick="sCat(''+c.replace(/'/g,"\'")+'')">'+c+'</button>';}
+  h+='</div>';
+  if(!fl.length){h+='<div class="empty"><i class="ti ti-chef-hat"></i><div style="font-size:15px;font-weight:600">No recipes here yet</div><div style="font-size:13px;margin-top:5px">'+(S.fil==="Want to Try"?"Use + Add to save recipes you want to try":"Try a different filter or search")+'</div></div>';}
+  else{h+='<div class="grid">';for(var i=0;i<fl.length;i++){var r=fl[i];h+='<div class="card'+(r.wantToTry?" try":"")+'" onclick="oR(''+r.id+'')">';h+='<div><span class="ctag'+(r.wantToTry?" try":"")+'">'+( r.wantToTry?"Want to Try":esc(r.category))+'</span></div>';h+='<div class="cn">'+esc(r.name)+'</div>';h+='<div class="cm">'+(r.rating?stH(r.rating):'<span style="font-size:12px;color:var(--tx3)">Not tried yet</span>')+(r.cookTime?'<span>'+esc(r.cookTime)+'</span>':"")+'</div></div>';}h+='</div>';}
   return h;
 }
 
-function renderDetail() {
-  var r = null;
-  for (var i=0; i<S.recipes.length; i++) { if (S.recipes[i].id===S.selected) { r=S.recipes[i]; break; } }
-  if (!r) return "<p>Not found.</p>";
-  var h = "";
-  h += '<button class="back" onclick="setView('list')"><i class="ti ti-arrow-left"></i> All recipes</button>';
-  if (r.wantToTry) {
-    h += '<div class="tbanner"><span><i class="ti ti-bookmark" style="font-size:16px"></i> On your Want to Try list</span>';
-    h += '<button class="bt" onclick="markMade('' + r.id + '')"><i class="ti ti-check"></i> Mark as made!</button></div>';
-  }
-  h += '<div class="dh"><div style="flex:1;min-width:0">';
-  h += '<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">';
-  h += '<span class="ctag' + (r.wantToTry?" try":"") + '">' + (r.wantToTry?"Want to Try":esc(r.category)) + '</span>';
-  if (r.tags) h += '<span class="ctag" style="background:var(--sur2);color:var(--tx2);border:1px solid var(--bdr)">' + esc(r.tags) + '</span>';
-  h += '</div>';
-  h += '<div class="dtitle">' + esc(r.name) + '</div>';
-  h += '<div class="dmeta">';
-  if (r.rating) h += '<span class="dmi">' + starsH(r.rating) + '</span>';
-  if (r.prepTime) h += '<span class="dmi"><i class="ti ti-clock" style="font-size:14px"></i> Prep: ' + esc(r.prepTime) + '</span>';
-  if (r.cookTime) h += '<span class="dmi"><i class="ti ti-flame" style="font-size:14px"></i> Cook: ' + esc(r.cookTime) + '</span>';
-  if (r.servings) h += '<span class="dmi"><i class="ti ti-users" style="font-size:14px"></i> Serves ' + esc(r.servings) + '</span>';
-  h += '</div></div>';
-  h += '<div class="dacts">';
-  h += '<button class="ib" title="Add to shopping list" onclick="addShopR('' + r.id + '')"><i class="ti ti-shopping-cart"></i></button>';
-  h += '<button class="ib" title="Edit" onclick="startEdit('' + r.id + '')"><i class="ti ti-edit"></i></button>';
-  h += '<button class="ib del" title="Delete" onclick="delR('' + r.id + '')"><i class="ti ti-trash"></i></button>';
-  h += '</div></div>';
-  h += '<div class="dcols"><div><div class="slbl">Ingredients</div><ul class="ings">';
-  var ings = r.ingredients||[];
-  for (var i=0; i<ings.length; i++) {
-    h += '<li><span class="idot"></span><span>' + (ings[i].qty?'<strong>'+esc(ings[i].qty)+'</strong> ':"") + esc(ings[i].name) + '</span></li>';
-  }
-  h += '</ul></div><div><div class="slbl">Steps</div><ol class="sl">';
-  var stps = r.steps||[];
-  for (var i=0; i<stps.length; i++) {
-    h += '<li><span class="sn">' + (i+1) + '</span><span>' + esc(stps[i]) + '</span></li>';
-  }
-  h += '</ol></div></div>';
-  if (r.notes) h += '<div class="slbl">My notes</div><div class="nbox">' + esc(r.notes) + '</div>';
+function vDet(){
+  var r=null;for(var i=0;i<S.rr.length;i++){if(S.rr[i].id===S.sel){r=S.rr[i];break;}}if(!r)return"<p>Not found.</p>";
+  var h='<button class="back" onclick="sv('list')"><i class="ti ti-arrow-left"></i> All recipes</button>';
+  if(r.wantToTry)h+='<div class="tbn"><span><i class="ti ti-bookmark" style="font-size:16px"></i> On your Want to Try list</span><button class="bt" onclick="mMade(''+r.id+'')"><i class="ti ti-check"></i> Mark as made!</button></div>';
+  h+='<div class="dh"><div style="flex:1;min-width:0"><div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px"><span class="ctag'+(r.wantToTry?" try":"")+'">'+( r.wantToTry?"Want to Try":esc(r.category))+'</span>'+(r.tags?'<span class="ctag" style="background:var(--sur2);color:var(--tx2);border:1px solid var(--bdr)">'+esc(r.tags)+'</span>':"")+'</div>';
+  h+='<div class="dtt">'+esc(r.name)+'</div><div class="dm">'+(r.rating?'<span class="dmi">'+stH(r.rating)+'</span>':"")+(r.prepTime?'<span class="dmi"><i class="ti ti-clock" style="font-size:13px"></i> Prep: '+esc(r.prepTime)+'</span>':"")+(r.cookTime?'<span class="dmi"><i class="ti ti-flame" style="font-size:13px"></i> Cook: '+esc(r.cookTime)+'</span>':"")+(r.servings?'<span class="dmi"><i class="ti ti-users" style="font-size:13px"></i> Serves '+esc(r.servings)+'</span>':"")+'</div></div>';
+  h+='<div class="da"><button class="ib" title="Add to shopping list" onclick="aSR(''+r.id+'')"><i class="ti ti-shopping-cart"></i></button><button class="ib" onclick="sEdit(''+r.id+'')"><i class="ti ti-edit"></i></button><button class="ib del" onclick="dR(''+r.id+'')"><i class="ti ti-trash"></i></button></div></div>';
+  h+='<div class="dcols"><div><div class="slbl">Ingredients</div><ul class="ings">';
+  var ng=r.ingredients||[];for(var i=0;i<ng.length;i++)h+='<li><span class="idot"></span><span>'+(ng[i].qty?'<strong>'+esc(ng[i].qty)+'</strong> ':"")+esc(ng[i].name)+'</span></li>';
+  h+='</ul></div><div><div class="slbl">Steps</div><ol class="sl">';
+  var st=r.steps||[];for(var i=0;i<st.length;i++)h+='<li><span class="sn">'+(i+1)+'</span><span>'+esc(st[i])+'</span></li>';
+  h+='</ol></div></div>';
+  if(r.notes)h+='<div class="slbl">My notes</div><div class="nbox">'+esc(r.notes)+'</div>';
   return h;
 }
 
-function renderForm() {
-  var r = S.editR; var isE = !!r.id; var h = "";
-  var cats = ["Dinner","Lunch","Dessert","Snack","Other"];
-  h += '<button class="back" onclick="cancelForm()"><i class="ti ti-arrow-left"></i> ' + (isE?"Back to recipe":"All recipes") + '</button>';
-  h += '<div class="dtitle" style="margin-bottom:1.25rem">' + (isE?"Edit recipe":"Add new recipe") + '</div>';
-
-  if (!isE) {
-    h += '<div class="import-section">';
-    // URL box
-    h += '<div class="ibox">';
-    h += '<div class="ibox-title"><i class="ti ti-link" style="font-size:15px"></i> Import from a URL</div>';
-    h += '<div class="ibox-sub">Paste a link from AllRecipes, Food Network, NYT Cooking, Serious Eats and most major recipe sites.</div>';
-    h += '<div class="irow"><input type="url" id="url-input" placeholder="https://www.allrecipes.com/recipe/..." ' + (S.urlLoading?'disabled':'')+  '><button class="bp" onclick="doURLImport()" ' + (S.urlLoading?'disabled':'')+  '>' + (S.urlLoading?'<i class="ti ti-loader spin"></i> Importing...':"Import") + '</button></div>';
-    if (S.urlMsg) h += '<div class="istatus ' + (S.urlOk?"ok":"err") + '">' + (S.urlOk?'<i class="ti ti-circle-check"></i>':'<i class="ti ti-alert-circle"></i>') + ' ' + esc(S.urlMsg) + '</div>';
-    h += '</div>';
-    // Paste box
-    h += '<div class="ibox">';
-    h += '<div class="ibox-title"><i class="ti ti-clipboard-text" style="font-size:15px"></i> Paste recipe text</div>';
-    h += '<div class="ibox-sub">Copy and paste anything &mdash; a blog post, a forwarded email, a messy copy-paste. AI will extract and organise it into the form below.</div>';
-    h += '<textarea id="paste-input" style="height:130px;font-size:13px" placeholder="Paste your recipe here... ingredients, steps, whatever order they are in. It does not need to be tidy." ' + (S.pasteLoading?'disabled':'') + '></textarea>';
-    h += '<div style="display:flex;gap:8px;margin-top:8px;align-items:center;flex-wrap:wrap">';
-    h += '<button class="bp" onclick="doPasteImport()" ' + (S.pasteLoading?'disabled':'') + '>' + (S.pasteLoading?'<i class="ti ti-loader spin"></i> Parsing...':'<i class="ti ti-wand"></i> Parse with AI') + '</button>';
-    if (S.pasteMsg) h += '<span style="font-size:13px;color:' + (S.pasteOk?"var(--t)":"#c0392b") + ';display:flex;align-items:center;gap:5px">' + (S.pasteOk?'<i class="ti ti-circle-check"></i>':'<i class="ti ti-alert-circle"></i>') + ' ' + esc(S.pasteMsg) + '</span>';
-    h += '</div></div>';
-    h += '</div>';
-    h += '<div class="divider">or fill in manually</div>';
+function vForm(){
+  var r=S.er;var isE=!!r.id;var cats=["Dinner","Lunch","Dessert","Snack","Other"];var h="";
+  h+='<button class="back" onclick="cF()"><i class="ti ti-arrow-left"></i> '+(isE?"Back to recipe":"All recipes")+'</button>';
+  h+='<div class="dtt" style="margin-bottom:1.25rem">'+(isE?"Edit recipe":"Add new recipe")+'</div>';
+  if(!isE){
+    h+='<div class="isec"><div class="ibox"><div class="ibt"><i class="ti ti-link"></i> Import from a URL</div><div class="ibs">Paste a link from AllRecipes, Food Network, Serious Eats, Bon Appetit and most major recipe sites.</div>';
+    h+='<div class="ir"><input type="url" id="ui" placeholder="https://www.allrecipes.com/recipe/..."'+(S.ul?' disabled':'')+'><button class="bp" onclick="doURL()"'+(S.ul?' disabled':'')+'>'+(S.ul?'<i class="ti ti-loader spin"></i> Importing...':"Import")+'</button></div>';
+    if(S.um)h+='<div class="imsg '+(S.uo?"ok":"err")+'">'+(S.uo?'<i class="ti ti-circle-check"></i>':'<i class="ti ti-alert-circle"></i>')+' '+esc(S.um)+'</div>';
+    h+='</div></div><div class="divider">or fill in manually</div>';
   }
-
-  h += '<div class="fr"><div class="trow"><input type="checkbox" id="fwt" ' + (r.wantToTry?'checked':'') + '><label for="fwt"><i class="ti ti-bookmark" style="font-size:15px;vertical-align:-2px"></i> Add to &ldquo;Want to Try&rdquo; &mdash; I have not made this yet</label></div></div>';
-  h += '<div class="f2"><div class="fr"><label class="fl">Recipe name</label><input type="text" id="fn" value="' + esc(r.name||"") + '" placeholder="e.g. Sheet Pan Chicken"></div>';
-  h += '<div class="fr"><label class="fl">Category</label><select id="fc">';
-  for (var i=0; i<cats.length; i++) h += '<option' + (r.category===cats[i]?" selected":"") + '>' + cats[i] + '</option>';
-  h += '</select></div></div>';
-  h += '<div class="f3"><div class="fr"><label class="fl">Prep time</label><input type="text" id="fp" value="' + esc(r.prepTime||"") + '" placeholder="15 min"></div>';
-  h += '<div class="fr"><label class="fl">Cook time</label><input type="text" id="fk" value="' + esc(r.cookTime||"") + '" placeholder="30 min"></div>';
-  h += '<div class="fr"><label class="fl">Servings</label><input type="text" id="fsv" value="' + esc(r.servings||"") + '" placeholder="4"></div></div>';
-  h += '<div class="fr"><label class="fl">Tags / cuisine</label><input type="text" id="ftg" value="' + esc(r.tags||"") + '" placeholder="Latin, Asian, Mediterranean..."></div>';
-  h += '<div class="fr"><label class="fl">Rating</label><div class="spkr" id="spkr">';
-  for (var i=1; i<=5; i++) h += '<span class="sp' + ((r.rating||0)>=i?" lit":"") + '" data-v="' + i + '">&#9733;</span>';
-  h += '</div><input type="hidden" id="frt" value="' + (r.rating||0) + '"></div>';
-  h += '<div class="fr"><label class="fl">Ingredients</label><div id="irs">';
-  var ings = r.ingredients && r.ingredients.length ? r.ingredients : [{qty:"",name:""}];
-  for (var i=0; i<ings.length; i++) {
-    h += '<div class="ingrow"><input type="text" placeholder="Qty" data-iq="' + i + '" value="' + esc(ings[i].qty||"") + '"><input type="text" placeholder="Ingredient" data-in="' + i + '" value="' + esc(ings[i].name||"") + '"><button class="rmv" onclick="rmIng(' + i + ')"><i class="ti ti-x"></i></button></div>';
-  }
-  h += '</div><button class="addb" onclick="addIng()"><i class="ti ti-plus"></i> Add ingredient</button></div>';
-  h += '<div class="fr"><label class="fl">Steps</label><div id="srs">';
-  var stps = r.steps && r.steps.length ? r.steps : [""];
-  for (var i=0; i<stps.length; i++) {
-    h += '<div class="strow"><textarea placeholder="Step ' + (i+1) + '" data-st="' + i + '">' + esc(stps[i]) + '</textarea><button class="rmv" onclick="rmStep(' + i + ')"><i class="ti ti-x"></i></button></div>';
-  }
-  h += '</div><button class="addb" onclick="addStep()"><i class="ti ti-plus"></i> Add step</button></div>';
-  h += '<div class="fr"><label class="fl">My notes</label><textarea id="fnt" placeholder="How did it turn out? What would you change?">' + esc(r.notes||"") + '</textarea></div>';
-  h += '<div class="facts"><button class="bg" onclick="cancelForm()">Cancel</button><button class="bp" onclick="saveForm()">' + (isE?"Save changes":"Add recipe") + '</button></div>';
+  h+='<div class="fr"><div class="trow"><input type="checkbox" id="fwt"'+(r.wantToTry?' checked':'')+'><label for="fwt"><i class="ti ti-bookmark" style="font-size:15px;vertical-align:-2px"></i> Add to &ldquo;Want to Try&rdquo; &mdash; haven't made this yet</label></div></div>';
+  h+='<div class="f2"><div class="fr"><label class="fl">Recipe name</label><input type="text" id="fn" value="'+esc(r.name||"")+'" placeholder="e.g. Sheet Pan Chicken"></div><div class="fr"><label class="fl">Category</label><select id="fc">';
+  for(var i=0;i<cats.length;i++)h+='<option'+(r.category===cats[i]?" selected":"")+'>'+cats[i]+'</option>';
+  h+='</select></div></div><div class="f3"><div class="fr"><label class="fl">Prep time</label><input type="text" id="fp" value="'+esc(r.prepTime||"")+'" placeholder="15 min"></div><div class="fr"><label class="fl">Cook time</label><input type="text" id="fk" value="'+esc(r.cookTime||"")+'" placeholder="30 min"></div><div class="fr"><label class="fl">Servings</label><input type="text" id="fsv" value="'+esc(r.servings||"")+'" placeholder="4"></div></div>';
+  h+='<div class="fr"><label class="fl">Tags / cuisine</label><input type="text" id="ftg" value="'+esc(r.tags||"")+'" placeholder="Latin, Asian, Mediterranean..."></div>';
+  h+='<div class="fr"><label class="fl">Rating</label><div class="spkr" id="spkr">';
+  for(var i=1;i<=5;i++)h+='<span class="sp'+((r.rating||0)>=i?" lit":"")+'" data-v="'+i+'">&#9733;</span>';
+  h+='</div><input type="hidden" id="frt" value="'+(r.rating||0)+'"></div>';
+  h+='<div class="fr"><label class="fl">Ingredients</label><div id="irs">';
+  var ng=r.ingredients&&r.ingredients.length?r.ingredients:[{qty:"",name:""}];
+  for(var i=0;i<ng.length;i++)h+='<div class="ingrow"><input type="text" placeholder="Qty" data-iq="'+i+'" value="'+esc(ng[i].qty||"")+'"><input type="text" placeholder="Ingredient" data-in="'+i+'" value="'+esc(ng[i].name||"")+'"><button class="rmv" onclick="rI('+i+')"><i class="ti ti-x"></i></button></div>';
+  h+='</div><button class="addb" onclick="aI()"><i class="ti ti-plus"></i> Add ingredient</button></div>';
+  h+='<div class="fr"><label class="fl">Steps</label><div id="srs">';
+  var st=r.steps&&r.steps.length?r.steps:[""];
+  for(var i=0;i<st.length;i++)h+='<div class="strow"><textarea placeholder="Step '+(i+1)+'" data-st="'+i+'">'+esc(st[i])+'</textarea><button class="rmv" onclick="rS('+i+')"><i class="ti ti-x"></i></button></div>';
+  h+='</div><button class="addb" onclick="aS()"><i class="ti ti-plus"></i> Add step</button></div>';
+  h+='<div class="fr"><label class="fl">My notes</label><textarea id="fnt" placeholder="How did it turn out? What would you change?">'+esc(r.notes||"")+'</textarea></div>';
+  h+='<div class="fac"><button class="bg" onclick="cF()">Cancel</button><button class="bp" onclick="svF()">'+(isE?"Save changes":"Add recipe")+'</button></div>';
   return h;
 }
 
-function renderPlan() {
-  var dates = wDates(S.weekOff); var mon = dates[0]; var sun = dates[6]; var h = "";
-  var isCW = S.weekOff === 0;
-  var rng = mon.toLocaleDateString("en-CA",{month:"long",day:"numeric"}) + " – " + sun.toLocaleDateString("en-CA",{month:"long",day:"numeric",year:"numeric"});
-  h += '<div class="pnav"><div><div class="pwl">' + (isCW?"This week":"Week of "+mon.toLocaleDateString("en-CA",{month:"short",day:"numeric"})) + '</div><div class="pws">' + rng + '</div></div>';
-  h += '<div class="pnb"><button class="bg" style="padding:6px 10px;font-size:13px" onclick="shiftWeek(-1)"><i class="ti ti-chevron-left"></i></button>';
-  if (!isCW) h += '<button class="bg" style="padding:6px 10px;font-size:13px" onclick="shiftWeek(0)">Today</button>';
-  h += '<button class="bg" style="padding:6px 10px;font-size:13px" onclick="shiftWeek(1)"><i class="ti ti-chevron-right"></i></button></div></div>';
-  h += '<div class="pgrid">';
-  for (var i=0; i<dates.length; i++) {
-    var d = dates[i]; var td = isToday(d);
-    h += '<div class="pday' + (td?" td":"") + '"><div class="pdh"><div class="pdn">' + DAYS[i] + '</div><div class="pdd">' + d.getDate() + '</div></div>';
-    for (var j=0; j<MEALS.length; j++) {
-      var ml = MEALS[j]; var val = getMeal(S.weekOff, i, ml);
-      h += '<div class="pslot"><div class="pml">' + ml + '</div>';
-      if (val) {
-        h += '<div class="pf"><span class="pm" onclick="openPicker(' + S.weekOff + ',' + i + ','' + ml + '')">' + esc(val) + '</span><button class="pc" onclick="clearMeal(' + S.weekOff + ',' + i + ','' + ml + '')"><i class="ti ti-x" style="font-size:12px"></i></button></div>';
-      } else {
-        h += '<div class="pe" onclick="openPicker(' + S.weekOff + ',' + i + ','' + ml + '')">+ Add</div>';
-      }
-      h += '</div>';
-    }
-    h += '</div>';
-  }
-  h += '</div>';
-  h += '<p style="font-size:12px;color:var(--tx3);margin-top:.75rem;text-align:center">Click any slot to pick a recipe or type a custom meal</p>';
-  return h;
-}
-
-function renderShop() {
-  var pend = S.shopItems.filter(function(i){return !i.done;}); var done = S.shopItems.filter(function(i){return i.done;}); var h = "";
-  h += '<div class="shdr"><div><div class="dtitle">Shopping list</div><div style="font-size:13px;color:var(--tx2);margin-top:3px">' + pend.length + ' item' + (pend.length!==1?"s":"") + ' to get &middot; ' + done.length + ' checked off</div></div>';
-  if (done.length) h += '<button class="bg" onclick="clearDone()">Clear checked</button>';
-  h += '</div>';
-  h += '<div class="sadd"><input type="text" id="sinput" placeholder="Add item manually..." onkeydown="if(event.key==='Enter')addShopItem()"><button class="bp" onclick="addShopItem()">Add</button></div>';
-  if (!pend.length && !done.length) {
-    h += '<div class="empty"><i class="ti ti-shopping-cart"></i><div style="font-size:15px;font-weight:500">Your list is empty</div><div style="font-size:13px;margin-top:5px">Add items above or import from a recipe</div></div>';
-  }
-  if (pend.length) {
-    h += '<div style="margin-bottom:1rem"><div class="sstitle">To get (' + pend.length + ')</div>';
-    for (var i=0; i<pend.length; i++) {
-      var it = pend[i];
-      h += '<div class="si"><input type="checkbox" onchange="toggleShop('' + it.id + '')"><span class="si-t">' + esc(it.text) + '</span>' + (it.src?'<span class="si-s">'+esc(it.src)+'</span>':"") + '<button class="rmv" onclick="rmShopItem('' + it.id + '')"><i class="ti ti-x"></i></button></div>';
-    }
-    h += '</div>';
-  }
-  if (done.length) {
-    h += '<hr class="sdiv"><div><div class="sstitle">Done (' + done.length + ')</div>';
-    for (var i=0; i<done.length; i++) {
-      var it = done[i];
-      h += '<div class="si done"><input type="checkbox" checked onchange="toggleShop('' + it.id + '')"><span class="si-t">' + esc(it.text) + '</span>' + (it.src?'<span class="si-s">'+esc(it.src)+'</span>':"") + '<button class="rmv" onclick="rmShopItem('' + it.id + '')"><i class="ti ti-x"></i></button></div>';
-    }
-    h += '</div>';
-  }
-  h += '<div class="sipbox"><div class="slbl" style="margin-bottom:10px">Import ingredients from a recipe</div>';
-  h += '<div style="display:flex;gap:8px;flex-wrap:wrap"><select id="srs" style="flex:1;min-width:160px"><option value="">Choose a recipe...</option>';
-  for (var i=0; i<S.recipes.length; i++) h += '<option value="' + S.recipes[i].id + '">' + esc(S.recipes[i].name) + '</option>';
-  h += '</select><button class="bg" onclick="importRecipe()"><i class="ti ti-download" style="font-size:14px"></i> Import</button></div></div>';
-  return h;
-}
-
-function renderModal() {
-  var off = S.modal.off; var di = S.modal.di; var meal = S.modal.meal;
-  var q = S.mSearch.toLowerCase();
-  var fl = S.recipes.filter(function(r){ return !q || r.name.toLowerCase().indexOf(q)>=0 || (r.tags||"").toLowerCase().indexOf(q)>=0; });
-  var ds = wDates(off)[di].toLocaleDateString("en-CA",{weekday:"long",month:"short",day:"numeric"});
-  var h = '<div class="ov" onclick="closeModalBg(event)">';
-  h += '<div class="mod" onclick="event.stopPropagation()">';
-  h += '<div class="mh"><div class="mt">' + meal + ' &middot; ' + ds + '</div><button class="mx" onclick="closeModal()"><i class="ti ti-x"></i></button></div>';
-  h += '<div class="mb"><input type="text" style="margin-bottom:10px" placeholder="Search your recipes..." value="' + esc(S.mSearch) + '" oninput="mSearch(this.value)">';
-  h += '<div class="ml">';
-  if (!fl.length) { h += '<div style="padding:1rem;text-align:center;color:var(--tx3);font-size:13px">No matches</div>'; }
-  else { for (var i=0; i<fl.length; i++) { h += '<div class="mi" onclick="pickMeal('' + esc(fl[i].name) + '')"> ' + esc(fl[i].name) + '<span class="mc">' + esc(fl[i].category) + '</span></div>'; } }
-  h += '</div></div>';
-  h += '<div class="mft"><input type="text" id="cmin" placeholder="Or type a custom meal..." onkeydown="if(event.key==='Enter')pickCustom()"><button class="bp" onclick="pickCustom()">Add</button></div>';
-  h += '</div></div>';
-  return h;
-}
-
-function bindStars() {
-  var els = document.querySelectorAll("#spkr .sp");
-  for (var i=0; i<els.length; i++) {
-    (function(el) {
-      el.addEventListener("click", function() {
-        var v = parseInt(el.getAttribute("data-v"));
-        document.getElementById("frt").value = v;
-        var all = document.querySelectorAll("#spkr .sp");
-        for (var j=0; j<all.length; j++) {
-          if (j < v) all[j].classList.add("lit"); else all[j].classList.remove("lit");
-        }
+function vShop(){
+  var pend=S.sh.filter(function(i){return!i.done;});var done=S.sh.filter(function(i){return i.done;});var h="";
+  h+='<div class="shdr"><div><div class="dtt">Shopping list</div><div style="font-size:13px;color:var(--tx2);margin-top:3px">'+pend.length+' to get &middot; '+done.length+' done</div></div>'+(done.length?'<button class="bg" onclick="cDone()">Clear checked</button>':"")+'</div>';
+  h+='<div class="sadd"><input type="text" id="si2" placeholder="Add item..." onkeydown="if(event.key==='Enter')aSI()"><button class="bp" onclick="aSI()">Add</button></div>';
+  if(!pend.length&&!done.length)h+='<div class="empty"><i class="ti ti-shopping-cart"></i><div style="font-size:15px;font-weight:600">List is empty</div><div style="font-size:13px;margin-top:5px">Add items above or import from a recipe</div></div>';
+  if(pend.length){
+    var by={};DEPTS.forEach(function(d){by[d]=[];});
+    pend.forEach(function(it){if(!it.dept)it.dept=autoDept(it.text);(by[it.dept]||by["Other"]).push(it);});
+    var first=true;
+    DEPTS.forEach(function(d){
+      if(!by[d]||!by[d].length)return;
+      h+='<div class="dhdr'+(first?' style="margin-top:0"':"")+'">'+(DICONS[d]||"")+" "+d+'</div>';first=false;
+      by[d].forEach(function(it){
+        h+='<div class="si"><input type="checkbox" onchange="tSh(''+it.id+'')">';
+        h+='<span class="si-t">'+esc(it.text)+'</span>';
+        if(it.src)h+='<span class="si-s">'+esc(it.src)+'</span>';
+        h+='<select class="di-sel" onchange="setDept(''+it.id+'',this.value)">';
+        DEPTS.forEach(function(dd){h+='<option value="'+dd+'"'+(it.dept===dd?' selected':"")+'>'+dd+'</option>';});
+        h+='</select><button class="rmv" onclick="rSh(''+it.id+'')"><i class="ti ti-x"></i></button></div>';
       });
-    })(els[i]);
+    });
   }
-}
-
-/* ---- ACTIONS ---- */
-function setView(v) { S.view = v; render(); }
-function setCat(c) { S.filter = c; render(); }
-function doSearch(v) { S.search = v; render(); }
-function openRecipe(id) { S.selected = id; S.view = "detail"; render(); }
-function shiftWeek(off) { S.weekOff = off === 0 ? 0 : S.weekOff + off; render(); }
-function openPicker(off,di,meal) { S.modal = {off:off,di:di,meal:meal}; S.mSearch = ""; render(); setTimeout(function(){ var el=document.querySelector(".mb input"); if(el) el.focus(); },30); }
-function closeModal() { S.modal = null; render(); }
-function closeModalBg(ev) { if (ev.target.classList.contains("ov")) closeModal(); }
-function mSearch(v) { S.mSearch = v; render(); }
-function pickMeal(name) { if (!S.modal) return; setMeal(S.modal.off,S.modal.di,S.modal.meal,name); S.modal = null; render(); }
-function pickCustom() { var el=document.getElementById("cmin"); if (el && el.value.trim()) pickMeal(el.value.trim()); }
-function clearMeal(off,di,ml) { setMeal(off,di,ml,""); render(); }
-
-function startAdd() {
-  S.editR = {name:"",category:"Dinner",ingredients:[{qty:"",name:""}],steps:[""],rating:0,wantToTry:false};
-  S.urlMsg = ""; S.urlOk = false; S.urlLoading = false;
-  S.pasteMsg = ""; S.pasteOk = false; S.pasteLoading = false;
-  S.view = "form"; render();
-}
-function startEdit(id) {
-  for (var i=0;i<S.recipes.length;i++) { if (S.recipes[i].id===id) { S.editR = JSON.parse(JSON.stringify(S.recipes[i])); break; } }
-  S.view = "form"; render();
-}
-function cancelForm() { S.view = S.editR && S.editR.id ? "detail" : "list"; render(); }
-function markMade(id) {
-  for (var i=0;i<S.recipes.length;i++) { if (S.recipes[i].id===id) { S.recipes[i].wantToTry=false; break; } }
-  saveR(); render();
-}
-
-function collectForm() {
-  var ings = []; var els = document.querySelectorAll("[data-iq]");
-  for (var i=0;i<els.length;i++) { var nm=document.querySelector('[data-in="'+i+'"]'); if(nm&&nm.value.trim()) ings.push({qty:els[i].value.trim(),name:nm.value.trim()}); }
-  var stps = []; var sels = document.querySelectorAll("[data-st]");
-  for (var i=0;i<sels.length;i++) { if(sels[i].value.trim()) stps.push(sels[i].value.trim()); }
-  var wt = document.getElementById("fwt");
-  return {
-    name: document.getElementById("fn").value.trim(),
-    category: document.getElementById("fc").value,
-    prepTime: document.getElementById("fp").value.trim(),
-    cookTime: document.getElementById("fk").value.trim(),
-    servings: document.getElementById("fsv").value.trim(),
-    tags: document.getElementById("ftg").value.trim(),
-    rating: parseInt(document.getElementById("frt").value)||0,
-    wantToTry: wt ? wt.checked : false,
-    ingredients: ings, steps: stps,
-    notes: document.getElementById("fnt").value.trim()
-  };
-}
-function saveForm() {
-  var d = collectForm(); if (!d.name) { alert("Please enter a recipe name."); return; }
-  if (S.editR.id) {
-    for (var i=0;i<S.recipes.length;i++) { if (S.recipes[i].id===S.editR.id) { S.recipes[i]=Object.assign({},S.editR,d); break; } }
-    S.selected = S.editR.id;
-  } else {
-    var nr = Object.assign({id:uid()},d); S.recipes.push(nr); S.selected = nr.id;
+  if(done.length){
+    h+='<hr class="sdiv"><div style="margin-bottom:1rem"><div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--tx2);margin-bottom:6px">Done ('+done.length+')</div>';
+    for(var i=0;i<done.length;i++){var it=done[i];h+='<div class="si done"><input type="checkbox" checked onchange="tSh(''+it.id+'')" ><span class="si-t">'+esc(it.text)+'</span>'+(it.src?'<span class="si-s">'+esc(it.src)+'</span>':"")+'<button class="rmv" onclick="rSh(''+it.id+'')"><i class="ti ti-x"></i></button></div>';}
+    h+='</div>';
   }
-  S.view = "detail"; saveR(); render();
-}
-function delR(id) {
-  if (!confirm("Delete this recipe?")) return;
-  S.recipes = S.recipes.filter(function(r){return r.id!==id;});
-  S.view = "list"; S.selected = null; saveR(); render();
-}
-
-function addIng() {
-  var d=collectForm(); S.editR=Object.assign({},S.editR,d); S.editR.ingredients.push({qty:"",name:""}); render();
-}
-function rmIng(i) {
-  var d=collectForm(); S.editR=Object.assign({},S.editR,d); S.editR.ingredients.splice(i,1);
-  if (!S.editR.ingredients.length) S.editR.ingredients.push({qty:"",name:""}); render();
-}
-function addStep() {
-  var d=collectForm(); S.editR=Object.assign({},S.editR,d); S.editR.steps.push(""); render();
-}
-function rmStep(i) {
-  var d=collectForm(); S.editR=Object.assign({},S.editR,d); S.editR.steps.splice(i,1);
-  if (!S.editR.steps.length) S.editR.steps.push(""); render();
+  h+='<div class="sipb"><div class="slbl" style="margin-bottom:8px">Import from a recipe</div><div style="display:flex;gap:8px;flex-wrap:wrap"><select id="srs" style="flex:1;min-width:150px"><option value="">Choose a recipe...</option>';
+  for(var i=0;i<S.rr.length;i++)h+='<option value="'+S.rr[i].id+'">'+esc(S.rr[i].name)+'</option>';
+  h+='</select><button class="bg" onclick="iSh()"><i class="ti ti-download" style="font-size:14px"></i> Import</button></div></div>';
+  if(pend.length){
+    h+='<div class="act-bar">';
+    h+='<button class="act-btn" onclick="openSMS()"><i class="ti ti-message"></i> Text'+(S.cfg.phone?"":" (set # in Settings)")+'</button>';
+    h+='<button class="act-btn discord" onclick="sendDiscord()"><i class="ti ti-brand-discord"></i> Discord</button>';
+    h+='<button class="act-btn" onclick="copyNotion()"><i class="ti ti-clipboard-text"></i> Copy for Notion</button>';
+    h+='</div>';
+  }
+  return h;
 }
 
-function addShopR(id) {
-  var r=null; for(var i=0;i<S.recipes.length;i++){if(S.recipes[i].id===id){r=S.recipes[i];break;}}
-  if (!r) return;
-  var ings = r.ingredients||[];
-  for (var i=0;i<ings.length;i++) { var t=[ings[i].qty,ings[i].name].filter(Boolean).join(" "); if(t) S.shopItems.push({id:uid(),text:t,done:false,src:r.name}); }
-  saveS(); S.view="shop"; render();
+function vPlan(){
+  var dd=wDates(S.wo);var isCW=S.wo===0;var h="";
+  var rng=dd[0].toLocaleDateString("en-CA",{month:"long",day:"numeric"})+" \u2013 "+dd[6].toLocaleDateString("en-CA",{month:"long",day:"numeric",year:"numeric"});
+  h+='<div class="pnav"><div><div class="pwl">'+(isCW?"This week":"Week of "+dd[0].toLocaleDateString("en-CA",{month:"short",day:"numeric"}))+'</div><div class="pws">'+rng+'</div></div>';
+  h+='<div class="pnb"><button class="bg" style="padding:6px 10px" onclick="shW(-1)"><i class="ti ti-chevron-left"></i></button>'+(isCW?"":'<button class="bg" style="padding:6px 10px;font-size:12px" onclick="shW(0)">Today</button>')+'<button class="bg" style="padding:6px 10px" onclick="shW(1)"><i class="ti ti-chevron-right"></i></button></div></div>';
+  h+='<div class="pgrid">';
+  for(var i=0;i<dd.length;i++){
+    var d=dd[i];var td=isToday(d);
+    h+='<div class="pday'+(td?" td":"")+'"><div class="pdh"><div class="pdn">'+DAYS[i]+'</div><div class="pdd">'+d.getDate()+'</div></div>';
+    for(var j=0;j<MEALS.length;j++){
+      var ml=MEALS[j];var val=gM(S.wo,i,ml);
+      h+='<div class="pslot"><div class="pml">'+ml+'</div>';
+      if(val)h+='<div class="pf"><span class="pm" onclick="oP('+S.wo+','+i+',''+ml+'')">'+esc(val)+'</span><button class="pc" onclick="cM('+S.wo+','+i+',''+ml+'')"><i class="ti ti-x" style="font-size:11px"></i></button></div>';
+      else h+='<div class="pe" onclick="oP('+S.wo+','+i+',''+ml+'')">+ Add</div>';
+      h+='</div>';
+    }
+    h+='</div>';
+  }
+  h+='</div><p style="font-size:12px;color:var(--tx3);margin-top:.75rem;text-align:center">Click any slot to pick a recipe or type a custom meal</p>';
+  return h;
 }
-function addShopItem() {
-  var el=document.getElementById("sinput"); var v=el?el.value.trim():""; if(!v)return;
-  S.shopItems.push({id:uid(),text:v,done:false}); el.value=""; saveS(); render();
-}
-function toggleShop(id) {
-  for(var i=0;i<S.shopItems.length;i++){if(S.shopItems[i].id===id){S.shopItems[i].done=!S.shopItems[i].done;break;}}
-  saveS(); render();
-}
-function rmShopItem(id) { S.shopItems=S.shopItems.filter(function(x){return x.id!==id;}); saveS(); render(); }
-function clearDone() { S.shopItems=S.shopItems.filter(function(x){return !x.done;}); saveS(); render(); }
-function importRecipe() { var el=document.getElementById("srs"); if(el&&el.value) addShopR(el.value); }
 
-loadData();
+function vCfg(){
+  var h='<div class="dtt" style="margin-bottom:1.25rem">Settings</div>';
+  h+='<div class="cfg-sec"><div class="cfg-sec-t"><i class="ti ti-brand-discord"></i> Discord webhook</div>';
+  h+='<div class="cfg-sec-s">Paste a webhook URL to send your shopping list directly to a Discord channel.</div>';
+  h+='<input type="url" id="cfg-dc" placeholder="https://discord.com/api/webhooks/..." value="'+esc(S.cfg.discord||"")+'">';
+  h+='<div class="cfg-note"><strong>How to get a webhook URL:</strong> In Discord, right-click a channel &rarr; Edit Channel &rarr; Integrations &rarr; Webhooks &rarr; New Webhook &rarr; Copy Webhook URL. Paste it above.</div></div>';
+  h+='<div class="cfg-sec"><div class="cfg-sec-t"><i class="ti ti-message"></i> Phone number for texting</div>';
+  h+='<div class="cfg-sec-s">Enter the number to pre-fill when you tap Text (include country code).</div>';
+  h+='<input type="tel" id="cfg-ph" placeholder="+16139261234" value="'+esc(S.cfg.phone||"")+'"></div>';
+  h+='<div class="cfg-sec"><div class="cfg-sec-t"><i class="ti ti-clipboard-text"></i> Notion</div>';
+  h+='<div class="cfg-sec-s">The Notion API doesn't support direct browser requests. Use the "Copy for Notion" button on the shopping list to copy a formatted list you can paste in. For automatic page creation, use Claude.ai &mdash; Claude has Notion connected and can create pages for you in chat.</div></div>';
+  h+='<button class="bp" onclick="saveCfg()">Save settings</button>';
+  return h;
+}
+
+function vMod(){
+  var o=S.mo.off;var di=S.mo.di;var ml=S.mo.meal;var q=S.ms.toLowerCase();
+  var fl=S.rr.filter(function(r){return!q||r.name.toLowerCase().indexOf(q)>=0||(r.tags||"").toLowerCase().indexOf(q)>=0;});
+  var ds=wDates(o)[di].toLocaleDateString("en-CA",{weekday:"long",month:"short",day:"numeric"});
+  var h='<div class="ov" onclick="cMBg(event)"><div class="mod"><div class="mh"><div class="mt">'+ml+' &middot; '+ds+'</div><button class="mx" onclick="cMod()"><i class="ti ti-x"></i></button></div>';
+  h+='<div class="mb"><input type="text" style="margin-bottom:9px" placeholder="Search your recipes..." value="'+esc(S.ms)+'" oninput="mSr(this.value)">';
+  h+='<div class="ml">'+(fl.length?fl.map(function(r){return'<div class="mi" onclick="pM(''+esc(r.name)+'')">'+esc(r.name)+'<span class="mc">'+esc(r.category)+'</span></div>';}).join(''):'<div style="padding:1rem;text-align:center;color:var(--tx3);font-size:13px">No matches</div>')+'</div></div>';
+  h+='<div class="mft"><input type="text" id="cm" placeholder="Or type a custom meal..." onkeydown="if(event.key==='Enter')pC()"><button class="bp" onclick="pC()">Add</button></div></div></div>';
+  return h;
+}
+
+function bStars(){
+  var els=document.querySelectorAll("#spkr .sp");
+  for(var i=0;i<els.length;i++){(function(el){el.addEventListener("click",function(){var v=parseInt(el.getAttribute("data-v"));document.getElementById("frt").value=v;var all=document.querySelectorAll("#spkr .sp");for(var j=0;j<all.length;j++){if(j<v)all[j].classList.add("lit");else all[j].classList.remove("lit");}});})(els[i]);}
+}
+
+function sv(v){S.v=v;rnd();}
+function sCat(c){S.fil=c;rnd();}
+function dSr(v){S.srch=v;rnd();}
+function oR(id){S.sel=id;S.v="detail";rnd();}
+function shW(o){S.wo=o===0?0:S.wo+o;rnd();}
+function oP(o,di,ml){S.mo={off:o,di:di,meal:ml};S.ms="";rnd();setTimeout(function(){var el=document.querySelector(".mb input");if(el)el.focus();},30);}
+function cMod(){S.mo=null;rnd();}
+function cMBg(ev){if(ev.target.classList.contains("ov"))cMod();}
+function mSr(v){S.ms=v;rnd();}
+function pM(n){if(!S.mo)return;sM(S.mo.off,S.mo.di,S.mo.meal,n);S.mo=null;rnd();}
+function pC(){var el=document.getElementById("cm");if(el&&el.value.trim())pM(el.value.trim());}
+function cM(o,di,ml){sM(o,di,ml,"");rnd();}
+function saveCfg(){S.cfg.discord=(document.getElementById("cfg-dc")||{}).value||"";S.cfg.phone=(document.getElementById("cfg-ph")||{}).value||"";svC();toast("Settings saved!");}
+function setDept(id,dept){for(var i=0;i<S.sh.length;i++){if(S.sh[i].id===id){S.sh[i].dept=dept;break;}}svS();rnd();}
+function sAdd(){S.er={name:"",category:"Dinner",ingredients:[{qty:"",name:""}],steps:[""],rating:0,wantToTry:false};S.ul=false;S.um="";S.uo=false;S.v="form";rnd();}
+function sEdit(id){for(var i=0;i<S.rr.length;i++){if(S.rr[i].id===id){S.er=JSON.parse(JSON.stringify(S.rr[i]));break;}}S.v="form";rnd();}
+function cF(){S.v=S.er&&S.er.id?"detail":"list";rnd();}
+function mMade(id){for(var i=0;i<S.rr.length;i++){if(S.rr[i].id===id){S.rr[i].wantToTry=false;break;}}svR();rnd();}
+function colf(){
+  var ng=[];var iq=document.querySelectorAll("[data-iq]");
+  for(var i=0;i<iq.length;i++){var nm=document.querySelector('[data-in="'+i+'"]');if(nm&&nm.value.trim())ng.push({qty:iq[i].value.trim(),name:nm.value.trim()});}
+  var st=[];var sq=document.querySelectorAll("[data-st]");
+  for(var i=0;i<sq.length;i++){if(sq[i].value.trim())st.push(sq[i].value.trim());}
+  var wt=document.getElementById("fwt");
+  return{name:document.getElementById("fn").value.trim(),category:document.getElementById("fc").value,prepTime:document.getElementById("fp").value.trim(),cookTime:document.getElementById("fk").value.trim(),servings:document.getElementById("fsv").value.trim(),tags:document.getElementById("ftg").value.trim(),rating:parseInt(document.getElementById("frt").value)||0,wantToTry:wt?wt.checked:false,ingredients:ng,steps:st,notes:document.getElementById("fnt").value.trim()};
+}
+function svF(){
+  var d=colf();if(!d.name){alert("Please enter a recipe name.");return;}
+  if(S.er.id){for(var i=0;i<S.rr.length;i++){if(S.rr[i].id===S.er.id){S.rr[i]=Object.assign({},S.er,d);break;}}S.sel=S.er.id;}
+  else{var nr=Object.assign({id:uid()},d);S.rr.push(nr);S.sel=nr.id;}
+  S.v="detail";svR();rnd();
+}
+function dR(id){if(!confirm("Delete this recipe?"))return;S.rr=S.rr.filter(function(r){return r.id!==id;});S.v="list";S.sel=null;svR();rnd();}
+function aI(){var d=colf();S.er=Object.assign({},S.er,d);S.er.ingredients.push({qty:"",name:""});rnd();}
+function rI(i){var d=colf();S.er=Object.assign({},S.er,d);S.er.ingredients.splice(i,1);if(!S.er.ingredients.length)S.er.ingredients.push({qty:"",name:""});rnd();}
+function aS(){var d=colf();S.er=Object.assign({},S.er,d);S.er.steps.push("");rnd();}
+function rS(i){var d=colf();S.er=Object.assign({},S.er,d);S.er.steps.splice(i,1);if(!S.er.steps.length)S.er.steps.push("");rnd();}
+function aSR(id){
+  var r=null;for(var i=0;i<S.rr.length;i++){if(S.rr[i].id===id){r=S.rr[i];break;}}if(!r)return;
+  var ng=r.ingredients||[];for(var i=0;i<ng.length;i++){var t=[ng[i].qty,ng[i].name].filter(Boolean).join(" ");if(t)S.sh.push({id:uid(),text:t,done:false,src:r.name,dept:autoDept(ng[i].name)});}
+  svS();S.v="shop";rnd();
+}
+function aSI(){var el=document.getElementById("si2");var v=el?el.value.trim():"";if(!v)return;S.sh.push({id:uid(),text:v,done:false,dept:autoDept(v)});el.value="";svS();rnd();}
+function tSh(id){for(var i=0;i<S.sh.length;i++){if(S.sh[i].id===id){S.sh[i].done=!S.sh[i].done;break;}}svS();rnd();}
+function rSh(id){S.sh=S.sh.filter(function(x){return x.id!==id;});svS();rnd();}
+function cDone(){S.sh=S.sh.filter(function(x){return!x.done;});svS();rnd();}
+function iSh(){var el=document.getElementById("srs");if(el&&el.value)aSR(el.value);}
+
+ini();
 </script>
 </body>
 </html>
