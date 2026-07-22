@@ -62,6 +62,14 @@ button{font-family:inherit;cursor:pointer}
 .slbl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--tx2);margin-bottom:8px}
 .dcols{display:grid;grid-template-columns:1fr 1.6fr;gap:1.25rem;margin-bottom:1.25rem}
 @media(max-width:540px){.dcols{grid-template-columns:1fr}}
+.ihdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;gap:8px}
+.utog{display:flex;gap:0;border:1px solid var(--bdr);border-radius:var(--rs);overflow:hidden}
+.utb{background:transparent;border:none;padding:3px 9px;font-size:11px;font-weight:600;color:var(--tx2);cursor:pointer;font-family:inherit;border-right:1px solid var(--bdr)}
+.utb:last-child{border-right:none}
+.utb:hover{background:var(--sur2)}
+.utb.on{background:var(--al);color:var(--ad)}
+.srcl{display:inline-flex;align-items:center;gap:6px;font-size:14px;color:var(--a);text-decoration:none;padding:2px 0}
+.srcl:hover{text-decoration:underline}
 .ings{list-style:none}
 .ings li{font-size:14px;padding:6px 0;border-bottom:1px solid var(--bdr);color:var(--tx);display:flex;align-items:flex-start;gap:7px;line-height:1.4}
 .ings li:last-child{border-bottom:none}
@@ -209,7 +217,7 @@ var CATS=["All","Dinner","Lunch","Dessert","Snack","Other","Want to Try"];
 var DEPTS=["Produce","Meat & Seafood","Dairy & Eggs","Pantry & Dry Goods","Canned & Jarred","Frozen","Bakery","Condiments","Other"];
 var DICONS={"Produce":"🥦","Meat & Seafood":"🥩","Dairy & Eggs":"🧀","Pantry & Dry Goods":"🫙","Canned & Jarred":"🥫","Frozen":"❄️","Bakery":"🥖","Condiments":"🧴","Other":"🛒"};
 
-var S={v:"list",rr:[],sh:[],pl:{},fil:"All",srch:"",sel:null,er:null,wo:0,mo:null,ms:"",ul:false,um:"",uo:false,cfg:{discord:"",phone:""}};
+var S={v:"list",rr:[],sh:[],pl:{},fil:"All",srch:"",sel:null,er:null,wo:0,mo:null,ms:"",ul:false,um:"",uo:false,units:"orig",cfg:{discord:"",phone:""}};
 
 function lsGet(k){try{var v=localStorage.getItem(k);return v?JSON.parse(v):null;}catch(e){return null;}}
 function lsSet(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
@@ -239,6 +247,7 @@ function gBack(){S.v=S.er&&S.er.id?"detail":"list";rnd();}
 function gBackList(){sv("list");}
 function openR2(el){oR(el.dataset.id);}
 function setCat2(el){sCat(el.dataset.cat);}
+function setUnits2(el){S.units=el.dataset.mode;rnd();}
 function markMade2(el){mMade(el.dataset.id);}
 function startEdit2(el){sEdit(el.dataset.id);}
 function delR2(el){dR(el.dataset.id);}
@@ -349,15 +358,31 @@ function parseInst(x){
   for(var i=0;i<x.length;i++){var v=x[i];if(typeof v==="string"){o.push(v.trim());}else if(v["@type"]==="HowToStep"){o.push((v.text||v.name||"").trim());}else if(v["@type"]==="HowToSection"){var sub=parseInst(v.itemListElement);for(var j=0;j<sub.length;j++)o.push(sub[j]);}else{o.push((v.text||v.name||"").trim());}}
   return o.filter(Boolean);
 }
+var UFRAC={"¼":"1/4","½":"1/2","¾":"3/4","⅓":"1/3","⅔":"2/3","⅛":"1/8","⅜":"3/8","⅝":"5/8","⅞":"7/8","⅕":"1/5","⅖":"2/5","⅗":"3/5","⅘":"4/5","⅙":"1/6","⅚":"5/6"};
+var UNITWORDS={cup:1,cups:1,c:1,tbsp:1,tbsps:1,tbs:1,tablespoon:1,tablespoons:1,tsp:1,tsps:1,teaspoon:1,teaspoons:1,oz:1,ounce:1,ounces:1,lb:1,lbs:1,pound:1,pounds:1,g:1,gram:1,grams:1,kg:1,kilogram:1,kilograms:1,ml:1,milliliter:1,milliliters:1,millilitre:1,millilitres:1,l:1,liter:1,liters:1,litre:1,litres:1,pint:1,pints:1,quart:1,quarts:1,gallon:1,gallons:1,clove:1,cloves:1,can:1,cans:1,stalk:1,stalks:1,bunch:1,bunches:1,pinch:1,pinches:1,slice:1,slices:1,piece:1,pieces:1,stick:1,sticks:1,package:1,packages:1,pkg:1,dash:1,dashes:1,sprig:1,sprigs:1,head:1,heads:1,handful:1};
+function normFrac(s){return String(s).replace(/[¼½¾⅓⅔⅛⅜⅝⅞⅕⅖⅗⅘⅙⅚]/g,function(c){return " "+UFRAC[c]+" ";}).replace(/(\d)\s+\/\s+(\d)/g,"$1/$2").replace(/\s+/g," ").trim();}
+function parseIngLine(str){
+  str=normFrac(str);
+  var num="(?:\\d+\\s+\\d+\\/\\d+|\\d+\\/\\d+|\\d+(?:\\.\\d+)?)";
+  var qm=str.match(new RegExp("^("+num+")(\\s*(?:-|–|to)\\s*"+num+")?"));
+  if(!qm)return{qty:"",name:str};
+  var qty=qm[0].replace(/\s+/g," ").trim();
+  var rest=str.slice(qm[0].length).trim();
+  var um=rest.match(/^([a-zA-Z.]+)\b/);
+  if(um){var u=um[1].toLowerCase().replace(/\.$/,"");if(UNITWORDS[u]){qty=qty+" "+um[1].replace(/\.$/,"");rest=rest.slice(um[1].length).trim();}}
+  rest=rest.replace(/^of\s+/i,"").trim();
+  return{qty:qty,name:rest||str};
+}
 function parseIngs(list){
   if(!Array.isArray(list))return[];
-  return list.map(function(s){var str=typeof s==="string"?s:(s.name||String(s));var m=str.match(/^([\d\/.]+\s*(?:cups?|tbsps?|tsps?|oz|lbs?|g|kg|ml|l|cloves?|medium|large|small|can|bunch|pinch)?)\s+(.+)/i);if(m)return{qty:m[1].trim(),name:m[2].trim()};return{qty:"",name:str.trim()};}).filter(function(x){return x.name;});
+  return list.map(function(s){var str=typeof s==="string"?s:(s.name||String(s));return parseIngLine(str);}).filter(function(x){return x.name;});
 }
 function doURL(){
   var inp=document.getElementById("ui");var url=inp?inp.value.trim():"";
   if(!url){alert("Please paste a URL first.");return;}
+  S.er.sourceUrl=url;
   S.ul=true;S.um="";rnd();
-  tryP(["https://api.allorigins.win/raw?url="+encodeURIComponent(url),"https://corsproxy.io/?"+encodeURIComponent(url)],0);
+  tryP(["https://api.allorigins.win/raw?url="+encodeURIComponent(url),"https://api.codetabs.com/v1/proxy/?quest="+encodeURIComponent(url),"https://corsproxy.io/?url="+encodeURIComponent(url)],0);
 }
 function tryP(px,i){
   if(i>=px.length){S.ul=false;S.uo=false;S.um="Could not reach this page. Try filling in manually.";rnd();return;}
@@ -380,6 +405,84 @@ function procH(html){
   else if(rc.keywords)S.er.tags=typeof rc.keywords==="string"?rc.keywords.split(",")[0].trim():(rc.keywords[0]||"");
   if(rc.description)S.er.notes=rc.description.replace(/<[^>]+>/g,"").trim().slice(0,300);
   S.uo=true;S.um="Imported! Review and save below.";rnd();
+}
+
+/* --- unit conversion (metric <-> US) --- */
+var UNITMAP={cup:"cup",cups:"cup",c:"cup",tbsp:"tbsp",tbsps:"tbsp",tbs:"tbsp",tablespoon:"tbsp",tablespoons:"tbsp",tsp:"tsp",tsps:"tsp",teaspoon:"tsp",teaspoons:"tsp",oz:"oz",ounce:"oz",ounces:"oz","fl oz":"floz","floz":"floz","fluid ounce":"floz","fluid ounces":"floz",lb:"lb",lbs:"lb",pound:"lb",pounds:"lb",g:"g",gram:"g",grams:"g",kg:"kg",kilogram:"kg",kilograms:"kg",ml:"ml",milliliter:"ml",millilitre:"ml",milliliters:"ml",millilitres:"ml",l:"l",liter:"l",litre:"l",liters:"l",litres:"l",pint:"pint",pints:"pint",quart:"quart",quarts:"quart",gallon:"gallon",gallons:"gallon"};
+var VOLML={cup:240,tbsp:15,tsp:5,floz:30,pint:473,quart:946,gallon:3785,ml:1,l:1000};
+var WTG={oz:28.35,lb:453.6,g:1,kg:1000};
+var METRICUNITS={g:1,kg:1,ml:1,l:1};
+function parseNum(s){s=String(s).trim();if(s.indexOf(" ")>=0){var p=s.split(/\s+/);return parseNum(p[0])+parseNum(p[1]);}if(s.indexOf("/")>=0){var f=s.split("/");return parseFloat(f[0])/parseFloat(f[1]);}return parseFloat(s);}
+function parseQty(q){
+  q=String(q||"").trim();var m=q.match(/^(\d+\s+\d+\/\d+|\d+\/\d+|\d+(?:\.\d+)?)\s*([a-zA-Z. ]*)$/);
+  if(!m)return null;var n=parseNum(m[1]);if(isNaN(n))return null;
+  var rest=m[2].trim().toLowerCase().replace(/\.$/,"");
+  var unit=UNITMAP[rest];
+  if(!unit){var fw=rest.split(/\s+/)[0];unit=UNITMAP[fw];}
+  if(!unit)return null;
+  return{num:n,unit:unit};
+}
+function fracStr(n){
+  var whole=Math.floor(n+1e-9),frac=n-whole,e=Math.round(frac*8);
+  if(e===8){whole++;e=0;}var num=e,den=8;
+  while(num>0&&num%2===0&&den%2===0){num/=2;den/=2;}
+  var out="";if(whole>0)out+=whole;if(num>0)out+=(whole>0?" ":"")+num+"/"+den;
+  return out||"0";
+}
+function trimDec(n){return String(Math.round(n*100)/100);}
+function toMetric(p){
+  if(VOLML[p.unit]){var ml=p.num*VOLML[p.unit];if(ml>=1000)return trimDec(ml/1000)+" L";var rml=ml>=100?Math.round(ml/10)*10:(ml>=20?Math.round(ml/5)*5:Math.round(ml));return rml+" ml";}
+  if(WTG[p.unit]){var g=p.num*WTG[p.unit];if(g>=1000)return trimDec(g/1000)+" kg";return(g>=100?Math.round(g/5)*5:Math.round(g))+" g";}
+  return null;
+}
+function toUS(p){
+  if(VOLML[p.unit]){var ml=p.num*VOLML[p.unit];if(ml>=216)return fracStr(ml/240)+" cup"+(ml/240>=2?"s":"");if(ml>=14)return fracStr(ml/15)+" tbsp";return fracStr(ml/5)+" tsp";}
+  if(WTG[p.unit]){var g=p.num*WTG[p.unit];if(g>=454)return fracStr(g/453.6)+" lb"+(g/453.6>=2?"s":"");return fracStr(g/28.35)+" oz";}
+  return null;
+}
+function convertQty(qty,mode){
+  if(mode==="orig"||!qty)return qty;
+  var p=parseQty(qty);if(!p)return qty;
+  var isMetric=!!METRICUNITS[p.unit];
+  var out=null;
+  if(mode==="metric")out=isMetric?qty:toMetric(p);
+  else if(mode==="us")out=isMetric?toUS(p):qty;
+  return out||qty;
+}
+
+/* --- paste import (parse copied recipe text) --- */
+function cleanLine(s){return s.replace(/^\s*(?:[-*•▪●⁃∙]|\d+[.)]|step\s*\d+[:.)-]?)\s*/i,"").trim();}
+function parsePaste(txt){
+  var lines=String(txt||"").split(/\r?\n/).map(function(s){return s.trim();}).filter(Boolean);
+  var ings=[],steps=[],name="",mode="auto";
+  var IH=/^ingredients?\b/i,DH=/^(directions?|instructions?|method|steps|preparation)\b/i,SK=/^(nutrition|notes?|equipment|tips?|you'?ll need|servings?|yield|makes|prep\s*time|cook\s*time|total\s*time|advertisement|jump to)\b/i;
+  for(var i=0;i<lines.length;i++){
+    var ln=lines[i];
+    if(IH.test(ln)){mode="ing";var af=ln.replace(IH,"").trim();if(af)ings.push(cleanLine(af));continue;}
+    if(DH.test(ln)){mode="step";var ad=ln.replace(DH,"").trim();if(ad)steps.push(cleanLine(ad));continue;}
+    if(SK.test(ln)){mode="skip";continue;}
+    var c=cleanLine(ln);if(!c)continue;
+    if(mode==="ing")ings.push(c);
+    else if(mode==="step")steps.push(c);
+    else if(mode==="skip"){}
+    else{
+      if(!name&&i===0&&!/^[\d\/.]/.test(ln)){name=ln;continue;}
+      if(/^[\d\/.¼-¾⅐-⅞]/.test(ln)||parseQty(c))ings.push(c);
+      else steps.push(c);
+    }
+  }
+  return{name:name,ingredients:parseIngs(ings),steps:steps};
+}
+function doPaste(){
+  var el=document.getElementById("pt");var txt=el?el.value:"";
+  if(!txt.trim()){alert("Paste some recipe text first.");return;}
+  var d=colf();S.er=Object.assign({},S.er,d);
+  var p=parsePaste(txt);
+  if(!p.ingredients.length&&!p.steps.length){S.uo=false;S.um="Couldn't find ingredients or steps in that text. Try including the “Ingredients” and “Directions” headings when you copy.";rnd();return;}
+  if(p.ingredients.length)S.er.ingredients=p.ingredients;
+  if(p.steps.length)S.er.steps=p.steps;
+  if(p.name&&!S.er.name)S.er.name=p.name;
+  S.uo=true;S.um="Parsed "+p.ingredients.length+" ingredient(s) and "+p.steps.length+" step(s). Review and save below.";rnd();
 }
 
 /* --- render --- */
@@ -455,12 +558,17 @@ function vDet(){
   h+="<button class=\"ib\" onclick=\"startEdit2(this)\" data-id=\""+r.id+"\"><i class=\"ti ti-edit\"></i></button>";
   h+="<button class=\"ib del\" onclick=\"delR2(this)\" data-id=\""+r.id+"\"><i class=\"ti ti-trash\"></i></button>";
   h+="</div></div>";
-  h+="<div class=\"dcols\"><div><div class=\"slbl\">Ingredients</div><ul class=\"ings\">";
-  var ng=r.ingredients||[];for(var i=0;i<ng.length;i++)h+="<li><span class=\"idot\"></span><span>"+(ng[i].qty?"<strong>"+esc(ng[i].qty)+"</strong> ":"")+esc(ng[i].name)+"</span></li>";
+  h+="<div class=\"dcols\"><div><div class=\"ihdr\"><div class=\"slbl\" style=\"margin-bottom:0\">Ingredients</div>";
+  h+="<div class=\"utog\">";
+  var UM=[["orig","Original"],["us","US"],["metric","Metric"]];
+  for(var u=0;u<UM.length;u++)h+="<button class=\"utb"+(S.units===UM[u][0]?" on":"")+"\" onclick=\"setUnits2(this)\" data-mode=\""+UM[u][0]+"\">"+UM[u][1]+"</button>";
+  h+="</div></div><ul class=\"ings\">";
+  var ng=r.ingredients||[];for(var i=0;i<ng.length;i++)h+="<li><span class=\"idot\"></span><span>"+(ng[i].qty?"<strong>"+esc(convertQty(ng[i].qty,S.units))+"</strong> ":"")+esc(ng[i].name)+"</span></li>";
   h+="</ul></div><div><div class=\"slbl\">Steps</div><ol class=\"sl\">";
   var st=r.steps||[];for(var i=0;i<st.length;i++)h+="<li><span class=\"snum\">"+(i+1)+"</span><span>"+esc(st[i])+"</span></li>";
   h+="</ol></div></div>";
   if(r.notes)h+="<div class=\"slbl\">My notes</div><div class=\"nbox\">"+esc(r.notes)+"</div>";
+  if(r.sourceUrl)h+="<div class=\"slbl\" style=\"margin-top:1rem\">Source</div><a class=\"srcl\" href=\""+esc(r.sourceUrl)+"\" target=\"_blank\" rel=\"noopener noreferrer\"><i class=\"ti ti-external-link\"></i> View original recipe</a>";
   return h;
 }
 
@@ -475,6 +583,11 @@ function vForm(){
     h+="<button class=\"bp\" onclick=\"doURL()\" "+(S.ul?"disabled":"")+">"+(S.ul?"<i class=\"ti ti-loader spin\"></i> Importing...":"Import")+"</button></div>";
     if(S.um)h+="<div class=\"imsg "+(S.uo?"ok":"err")+"\">"+(S.uo?"<i class=\"ti ti-circle-check\"></i>":"<i class=\"ti ti-alert-circle\"></i>")+" "+esc(S.um)+"</div>";
     h+="</div>";
+    h+="<div class=\"divider\">or paste the recipe text</div>";
+    h+="<div class=\"ibox\"><div class=\"ibt\"><i class=\"ti ti-clipboard-text\"></i> Paste from anywhere</div>";
+    h+="<div class=\"ibs\">If a link won't import (AllRecipes, blogs, etc.), just copy the recipe text from the page and paste it here. Include the <strong>Ingredients</strong> and <strong>Directions</strong> headings for best results.</div>";
+    h+="<textarea id=\"pt\" style=\"height:120px\" placeholder=\"Ingredients&#10;2 cups flour&#10;1 tsp salt&#10;&#10;Directions&#10;Mix the dry ingredients...&#10;Bake at 350F for 25 min...\"></textarea>";
+    h+="<div style=\"margin-top:8px\"><button class=\"bp\" onclick=\"doPaste()\"><i class=\"ti ti-wand\" style=\"font-size:14px;vertical-align:-2px\"></i> Parse text</button></div></div>";
     h+="<div class=\"divider\">or fill in manually</div>";
   }
   h+="<div class=\"fr\"><div class=\"trow\"><input type=\"checkbox\" id=\"fwt\" "+(r.wantToTry?"checked":"")+">";
@@ -487,6 +600,7 @@ function vForm(){
   h+="<div class=\"fr\"><label class=\"fl\">Cook time</label><input type=\"text\" id=\"fk\" value=\""+esc(r.cookTime||"")+"\" placeholder=\"30 min\"></div>";
   h+="<div class=\"fr\"><label class=\"fl\">Servings</label><input type=\"text\" id=\"fsv\" value=\""+esc(r.servings||"")+"\" placeholder=\"4\"></div></div>";
   h+="<div class=\"fr\"><label class=\"fl\">Tags / cuisine</label><input type=\"text\" id=\"ftg\" value=\""+esc(r.tags||"")+"\" placeholder=\"Latin, Asian, Mediterranean...\"></div>";
+  h+="<div class=\"fr\"><label class=\"fl\">Source URL</label><input type=\"url\" id=\"fsu\" value=\""+esc(r.sourceUrl||"")+"\" placeholder=\"https://... (link to the original recipe)\"></div>";
   h+="<div class=\"fr\"><label class=\"fl\">Rating</label><div class=\"spkr\" id=\"spkr\">";
   for(var i=1;i<=5;i++)h+="<span class=\"sp"+((r.rating||0)>=i?" lit":"")+"\" data-v=\""+i+"\">&#9733;</span>";
   h+="</div><input type=\"hidden\" id=\"frt\" value=\""+(r.rating||0)+"\"></div>";
@@ -667,6 +781,7 @@ function colf(){
     cookTime:document.getElementById("fk").value.trim(),
     servings:document.getElementById("fsv").value.trim(),
     tags:document.getElementById("ftg").value.trim(),
+    sourceUrl:document.getElementById("fsu").value.trim(),
     rating:parseInt(document.getElementById("frt").value)||0,
     wantToTry:wt?wt.checked:false,
     ingredients:ng,steps:st,
